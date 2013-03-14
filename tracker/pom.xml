@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>pl.pobiegne.mobile</groupId>
+	<artifactId>tracker</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>tracker</name>
+
+	<properties>
+		<!-- Wersja aplikacji -->
+		<tracker.version>0.0.1-SNAPSHOT</tracker.version>
+
+		<!-- Kodowanie projektu: -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Wersja systemu Android: -->
+		<android.version>4.0.1.2</android.version>
+
+		<!-- Wersja API Android: -->
+		<android.api.level>15</android.api.level>
+
+		<!-- Wersja: Plugin Android dla Maven: -->
+		<android-maven-plugin.version>3.5.1</android-maven-plugin.version>
+
+		<!-- Wersja AndroidAnnotations -->
+		<android-annotations.version>2.6</android-annotations.version>
+	</properties>
+
+	<modules>
+		<module>tracker-components</module>
+		<module>tracker-app</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android</artifactId>
+				<version>${android.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>${android-maven-plugin.version}</version>
+				<configuration>
+					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
+					<resourceDirectory>${project.basedir}/res</resourceDirectory>
+					<nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
+					<sdk>
+						<platform>${android.api.level}</platform>
+					</sdk>
+					<!-- <run> <debug>true</debug> </run> -->
+					<deleteConflictingFiles>true</deleteConflictingFiles>
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

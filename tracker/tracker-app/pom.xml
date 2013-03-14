@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>pl.pobiegne.mobile</groupId>
+        <artifactId>tracker</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>tracker-app</artifactId>
+    <version>${tracker.version}</version>
+
+    <packaging>apk</packaging>
+
+    <dependencies>
+        
+        <!-- Moduł komponentów -->
+        <dependency>
+            <groupId>pl.pobiegne.mobile</groupId>
+			<artifactId>tracker-components</artifactId>
+            <version>${tracker.version}</version>
+            <type>apklib</type>
+        </dependency>
+
+        <!-- API Android -->
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>${android.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Android Annotations -->
+        <dependency>
+            <groupId>com.googlecode.androidannotations</groupId>
+            <artifactId>androidannotations</artifactId>
+            <version>${android-annotations.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.androidannotations</groupId>
+            <artifactId>androidannotations</artifactId>
+            <classifier>api</classifier>
+            <version>${android-annotations.version}</version>
+        </dependency>
+
+        <!-- Android support library -->
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>support-v4</artifactId>
+            <version>r7</version>
+        </dependency>
+    </dependencies>
+</project>
