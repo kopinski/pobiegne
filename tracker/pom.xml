@@ -22,11 +22,14 @@
 		<!-- Wersja API Android: -->
 		<android.api.level>15</android.api.level>
 
+		<!-- Wersja Maps API Android: -->
+		<android.maps.api.level>15_r2</android.maps.api.level>
+
 		<!-- Wersja: Plugin Android dla Maven: -->
 		<android-maven-plugin.version>3.5.1</android-maven-plugin.version>
 
 		<!-- Wersja AndroidAnnotations -->
-		<android-annotations.version>2.6</android-annotations.version>
+		<android-annotations.version>2.7.1</android-annotations.version>
 	</properties>
 
 	<modules>
@@ -59,7 +62,7 @@
 					</sdk>
 					<!-- <run> <debug>true</debug> </run> -->
 					<deleteConflictingFiles>true</deleteConflictingFiles>
-					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+<!-- 					<undeployBeforeDeploy>true</undeployBeforeDeploy> -->
 				</configuration>
 				<executions>
 					<execution>
