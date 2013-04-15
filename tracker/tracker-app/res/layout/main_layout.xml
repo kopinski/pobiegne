@@ -1,315 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.MainActivity" >
+	xmlns:tools="http://schemas.android.com/tools" style="@style/mm"
+	android:layout_width="match_parent" android:orientation="vertical"
+	tools:context=".activity.MainActivity_">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="3dp" >
+	<LinearLayout style="@style/ww" android:layout_gravity="right"
+		android:layout_margin="3dp">
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/satellite" />
+		<ImageView android:id="@+id/imageView1" style="@style/ww"
+			android:src="@drawable/satellite" />
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="GPS:" />
+		<TextView android:id="@+id/gps" style="@style/ww"
+			android:layout_gravity="center_vertical" android:text="@string/gps"
+			android:textSize="@dimen/label_text_size" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="OK" />
-    </LinearLayout>
+		<TextView android:id="@+id/gpsState" style="@style/ww"
+			android:layout_gravity="center_vertical" android:textSize="@dimen/label_text_size" />
+	</LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
+	<LinearLayout style="@style/mw" android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="7.43"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/holo_blue_light"
-            android:textSize="@dimen/xxl_text_size"
-            android:textStyle="normal"
-            android:typeface="normal" />
+		<TextView android:id="@+id/distance" style="@style/ww"
+			android:text="7.43" android:textColor="@android:color/holo_blue_light"
+			android:textSize="@dimen/xxl_text_size" android:textStyle="normal"
+			android:typeface="normal" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="km"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/holo_blue_dark" />
-    </LinearLayout>
+		<TextView android:id="@+id/distanceUnit" style="@style/ww"
+			android:text="@string/km" android:textColor="@android:color/holo_blue_dark"
+			android:textSize="@dimen/label_large_text_size" />
+	</LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:orientation="vertical" >
+	<LinearLayout style="@style/mw" android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp" android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/target"
-            android:drawablePadding="5dp"
-            android:gravity="center_vertical"
-            android:text="Cel"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+		<RelativeLayout android:id="@+id/targetLayout"
+			android:layout_width="match_parent" android:layout_height="wrap_content">
 
-        <ProgressBar
-            android:id="@+id/progressBar1"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
+			<TextView android:id="@+id/target" style="@style/ww"
+				android:drawableLeft="@drawable/target" android:drawablePadding="5dp"
+				android:gravity="center_vertical" android:text="@string/target"
+				android:textSize="@dimen/label_text_size" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+			<ProgressBar android:id="@+id/targetProgress"
+				style="?android:attr/progressBarStyleHorizontal"
+				android:layout_width="match_parent" android:layout_height="wrap_content"
+				android:layout_below="@id/target" android:layout_marginBottom="8dp" />
+		</RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+		<LinearLayout style="@style/mw">
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/stopwatch"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Czas treningu"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/textView6"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:text="32:02"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
+				<TextView android:id="@+id/workoutTimeLabel" style="@style/ww"
+					android:drawableLeft="@drawable/stopwatch" android:drawablePadding="5dp"
+					android:gravity="center_vertical" android:text="@string/workoutTime"
+					android:textSize="@dimen/label_text_size" />
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+				<TextView android:id="@+id/workOutTime" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@+id/workoutTimeLabel"
+					android:layout_marginRight="16dp" android:layout_weight="1"
+					android:text="32:02" android:textSize="@dimen/label_large_text_size" />
+			</RelativeLayout>
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/fire"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Spalone kalorie"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/textView7"
-                    android:layout_marginRight="16dp"
-                    android:text="652"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-        </LinearLayout>
+				<TextView android:id="@+id/burnCaloriesLabel" style="@style/ww"
+					android:drawableLeft="@drawable/fire" android:drawablePadding="5dp"
+					android:gravity="center_vertical" android:text="@string/burnCalories"
+					android:textSize="@dimen/label_text_size" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+				<TextView android:id="@+id/burnCalories" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@id/burnCaloriesLabel"
+					android:layout_marginRight="16dp" android:text="-"
+					android:textSize="@dimen/label_large_text_size" />
+			</RelativeLayout>
+		</LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+		<LinearLayout style="@style/mw">
 
-                <TextView
-                    android:id="@+id/TextView01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/meter_fast"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Bieżące tempo"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/TextView02"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView01"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:text="6.5"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
+				<TextView android:id="@+id/currentPaceLabel" style="@style/ww"
+					android:drawableLeft="@drawable/meter_fast"
+					android:drawablePadding="5dp" android:gravity="center_vertical"
+					android:text="@string/currentPace" android:textSize="@dimen/label_text_size" />
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+				<TextView android:id="@+id/currentPace" style="@style/ww"
+					android:layout_alignParentRight="false" android:layout_below="@+id/currentPaceLabel"
+					android:layout_marginRight="2dp" android:layout_toLeftOf="@id/currentPaceUnit"
+					android:layout_weight="1" android:text="6.5"
+					android:textSize="@dimen/label_large_text_size" />
 
-                <TextView
-                    android:id="@+id/TextView03"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/meter_medium"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Średnie tempo"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+				<TextView android:id="@id/currentPaceUnit" style="@style/ww"
+					android:layout_alignBaseline="@id/currentPace"
+					android:layout_alignParentRight="true" android:layout_below="@id/currentPaceLabel"
+					android:layout_marginRight="16dp" android:text="@string/kmph"
+					android:textSize="@dimen/label_text_size" />
+			</RelativeLayout>
 
-                <TextView
-                    android:id="@+id/TextView04"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView03"
-                    android:layout_marginRight="16dp"
-                    android:text="7.5"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-        </LinearLayout>
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+				<TextView android:id="@+id/avaragePaceLabel" style="@style/ww"
+					android:drawableLeft="@drawable/meter_medium"
+					android:drawablePadding="5dp" android:gravity="center_vertical"
+					android:text="@string/avaragePace" android:textSize="@dimen/label_text_size" />
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+				<TextView android:id="@+id/avaragePace" style="@style/ww"
+					android:layout_alignParentRight="false" android:layout_below="@+id/avaragePaceLabel"
+					android:layout_marginRight="2dp" android:layout_toLeftOf="@id/avaragePaceUnit"
+					android:text="7.5" android:textSize="@dimen/label_large_text_size" />
 
-                <TextView
-                    android:id="@+id/TextView06"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/mountain"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Wysokość"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+				<TextView android:id="@id/avaragePaceUnit" style="@style/ww"
+					android:layout_alignBaseline="@id/avaragePace"
+					android:layout_alignParentRight="true" android:layout_below="@id/avaragePaceLabel"
+					android:layout_marginRight="16dp" android:text="@string/kmph"
+					android:textSize="@dimen/label_text_size" />
+			</RelativeLayout>
+		</LinearLayout>
 
-                <TextView
-                    android:id="@+id/TextView05"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView06"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:text="260"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
+		<LinearLayout style="@style/mw">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/TextView08"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/clock"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Aktualny czas"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+				<TextView android:id="@+id/altituteLabel" style="@style/ww"
+					android:drawableLeft="@drawable/mountain" android:drawablePadding="5dp"
+					android:gravity="center_vertical" android:text="@string/altitude"
+					android:textSize="@dimen/label_text_size" />
 
-                <TextView
-                    android:id="@+id/TextView07"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView08"
-                    android:layout_marginRight="16dp"
-                    android:text="16:45"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-        </LinearLayout>
+				<TextView android:id="@+id/altitude" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@+id/altituteLabel"
+					android:layout_marginRight="16dp" android:layout_weight="1"
+					android:text="-" android:textSize="@dimen/label_large_text_size" />
+			</RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+				<TextView android:id="@+id/currentTimeLabel" style="@style/ww"
+					android:drawableLeft="@drawable/clock" android:drawablePadding="5dp"
+					android:gravity="center_vertical" android:text="@string/currentTime"
+					android:textSize="@dimen/label_text_size" />
 
-                <TextView
-                    android:id="@+id/TextView01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="Rodzaj aktywności"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+				<TextView android:id="@+id/currentTime" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@+id/currentTimeLabel"
+					android:layout_marginRight="16dp" android:text="16:45"
+					android:textSize="@dimen/label_large_text_size" />
+			</RelativeLayout>
+		</LinearLayout>
 
-                <Spinner
-                    android:id="@+id/TextView02"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView01"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:text="260"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
+		<LinearLayout style="@style/mw">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/TextView03"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/bars"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:text="Typ treningu"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+				<TextView android:id="@+id/currentPaceLabel" style="@style/ww"
+					android:gravity="center_vertical" android:text="Rodzaj aktywności"
+					android:textSize="@dimen/label_text_size" />
 
-                <Spinner
-                    android:id="@+id/TextView04"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView03"
-                    android:layout_marginRight="16dp"
-                    android:text="16:45"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-        </LinearLayout>
-    </LinearLayout>
+				<Spinner android:id="@+id/currentPace" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@+id/currentPaceLabel"
+					android:layout_marginRight="16dp" android:layout_weight="1"
+					android:text="260" />
+			</RelativeLayout>
+
+			<RelativeLayout android:layout_width="0dp"
+				android:layout_height="wrap_content" android:layout_weight="1">
+
+				<TextView android:id="@+id/avaragePaceLabel" style="@style/ww"
+					android:drawableLeft="@drawable/bars" android:drawablePadding="5dp"
+					android:gravity="center_vertical" android:text="@string/workoutType"
+					android:textSize="@dimen/label_text_size" />
+
+				<Spinner android:id="@+id/avaragePace" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@+id/avaragePaceLabel"
+					android:layout_marginRight="16dp" android:text="16:45" />
+			</RelativeLayout>
+		</LinearLayout>
+	</LinearLayout>
+
+	<RelativeLayout style="@style/mw">
+
+		<Button android:id="@+id/pauseWorkout" style="@style/ww"
+			android:layout_alignParentLeft="false" android:layout_alignParentTop="true"
+			android:layout_toLeftOf="@id/dummyView" android:background="@drawable/orange_gradient"
+			android:text="@string/pause" />
+
+		<View android:id="@+id/dummyView" android:layout_width="20dp"
+			android:layout_height="20dp" android:layout_centerInParent="true" />
+
+		<Button android:id="@+id/stopWorkout" style="@style/ww"
+			android:layout_alignParentRight="false"
+			android:layout_alignParentTop="true" android:layout_marginRight="44dp"
+			android:layout_toRightOf="@id/dummyView" android:background="@drawable/red_gradient"
+			android:text="@string/stop" />
+	</RelativeLayout>
+
 </LinearLayout>

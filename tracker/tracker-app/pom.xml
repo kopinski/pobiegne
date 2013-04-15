@@ -16,6 +16,11 @@
 
 	<packaging>apk</packaging>
 
+	<properties>
+		<!-- Wersja Joda -->
+		<joda-time.version>2.2</joda-time.version>
+	</properties>
+
 	<dependencies>
 
 		<!-- Moduł komponentów -->
@@ -61,5 +66,42 @@
 			<artifactId>support-v4</artifactId>
 			<version>r7</version>
 		</dependency>
+
+		<!-- Joda time library -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>${android-maven-plugin.version}</version>
+				<configuration>
+					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
+					<resourceDirectory>${project.basedir}/res</resourceDirectory>
+					<nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
+					<sdk>
+						<platform>${android.api.level}</platform>
+					</sdk>
+					<!-- <run> <debug>true</debug> </run> -->
+					<deleteConflictingFiles>true</deleteConflictingFiles>
+					<!-- <undeployBeforeDeploy>true</undeployBeforeDeploy> -->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

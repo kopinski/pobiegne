@@ -1,5 +1,24 @@
 <resources>
 
     <string name="app_name">Pobiegne Tracker</string>
-
+    
+    <!-- Trening -->
+    <string name="gps">GPS:</string>
+    <string name="ok">OK</string>
+    <string name="not_available">BRAK</string>
+    <string name="km">km</string>
+    <string name="kmph">km/h</string>
+    <string name="minpkm">min/km</string>
+    <string name="target">Cel</string>
+    <string name="workoutTime">Czas treningu</string>
+    <string name="burnCalories">Spalone kalorie</string>
+    <string name="currentPace">Bieżące tempo</string>
+    <string name="avaragePace">Średnie tempo</string>
+    <string name="altitude">Wysokość</string>
+    <string name="currentTime">Aktualny czas</string>
+    <string name="activity">Rodzaj aktywności</string>
+    <string name="workoutType">Typ treningu</string>
+    <string name="stop">STOP</string>
+    <string name="pause">PAUZA</string>
+
 </resources>

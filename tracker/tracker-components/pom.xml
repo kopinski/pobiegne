@@ -43,4 +43,26 @@
 			<version>r7</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>${android-maven-plugin.version}</version>
+				<configuration>
+					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
+					<resourceDirectory>${project.basedir}/res</resourceDirectory>
+					<nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
+					<sdk>
+						<platform>${android.api.level}</platform>
+					</sdk>
+					<!-- <run> <debug>true</debug> </run> -->
+					<deleteConflictingFiles>true</deleteConflictingFiles>
+					<!-- <undeployBeforeDeploy>true</undeployBeforeDeploy> -->
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
