@@ -9,6 +9,7 @@
     <string name="km">km</string>
     <string name="kmph">km/h</string>
     <string name="minpkm">min/km</string>
+    <string name="mnpm">m n.p.n.</string>
     <string name="target">Cel</string>
     <string name="workoutTime">Czas treningu</string>
     <string name="burnCalories">Spalone kalorie</string>
@@ -20,5 +21,8 @@
     <string name="workoutType">Typ treningu</string>
     <string name="stop">STOP</string>
     <string name="pause">PAUZA</string>
+    <string name="startDistance">0.000</string>
+    <string name="startValue">-</string>
+    <string name="startTime">--:--</string>
 
 </resources>

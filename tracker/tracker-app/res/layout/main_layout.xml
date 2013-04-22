@@ -20,14 +20,11 @@
 
 	<LinearLayout style="@style/mw" android:gravity="center_horizontal">
 
-		<TextView android:id="@+id/distance" style="@style/ww"
-			android:text="7.43" android:textColor="@android:color/holo_blue_light"
-			android:textSize="@dimen/xxl_text_size" android:textStyle="normal"
-			android:typeface="normal" />
+		<TextView android:id="@+id/distance" style="@style/ww.mainLabel"
+			android:text="@string/startDistance" />
 
-		<TextView android:id="@+id/distanceUnit" style="@style/ww"
-			android:text="@string/km" android:textColor="@android:color/holo_blue_dark"
-			android:textSize="@dimen/label_large_text_size" />
+		<TextView android:id="@+id/distanceUnit" style="@style/ww.subLabel"
+			android:text="@string/km" />
 	</LinearLayout>
 
 	<LinearLayout style="@style/mw" android:layout_marginLeft="16dp"
@@ -36,10 +33,8 @@
 		<RelativeLayout android:id="@+id/targetLayout"
 			android:layout_width="match_parent" android:layout_height="wrap_content">
 
-			<TextView android:id="@+id/target" style="@style/ww"
-				android:drawableLeft="@drawable/target" android:drawablePadding="5dp"
-				android:gravity="center_vertical" android:text="@string/target"
-				android:textSize="@dimen/label_text_size" />
+			<TextView android:id="@+id/target" style="@style/ww.workoutLabel"
+				android:drawableLeft="@drawable/target" android:text="@string/target" />
 
 			<ProgressBar android:id="@+id/targetProgress"
 				style="?android:attr/progressBarStyleHorizontal"
@@ -52,29 +47,23 @@
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/workoutTimeLabel" style="@style/ww"
-					android:drawableLeft="@drawable/stopwatch" android:drawablePadding="5dp"
-					android:gravity="center_vertical" android:text="@string/workoutTime"
-					android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/workoutTimeLabel" style="@style/ww.workoutLabel"
+					android:drawableLeft="@drawable/stopwatch" android:text="@string/workoutTime" />
 
-				<TextView android:id="@+id/workOutTime" style="@style/ww"
+				<TextView android:id="@+id/workOutTime" style="@style/ww.workoutValue"
 					android:layout_alignParentRight="true" android:layout_below="@+id/workoutTimeLabel"
-					android:layout_marginRight="16dp" android:layout_weight="1"
-					android:text="32:02" android:textSize="@dimen/label_large_text_size" />
+					android:layout_weight="1" android:text="@string/startTime" />
 			</RelativeLayout>
 
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/burnCaloriesLabel" style="@style/ww"
-					android:drawableLeft="@drawable/fire" android:drawablePadding="5dp"
-					android:gravity="center_vertical" android:text="@string/burnCalories"
-					android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/burnCaloriesLabel" style="@style/ww.workoutLabel"
+					android:drawableLeft="@drawable/fire" android:text="@string/burnCalories" />
 
-				<TextView android:id="@+id/burnCalories" style="@style/ww"
+				<TextView android:id="@+id/burnCalories" style="@style/ww.workoutValue"
 					android:layout_alignParentRight="true" android:layout_below="@id/burnCaloriesLabel"
-					android:layout_marginRight="16dp" android:text="-"
-					android:textSize="@dimen/label_large_text_size" />
+					android:text="-" />
 			</RelativeLayout>
 		</LinearLayout>
 
@@ -83,42 +72,34 @@
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/currentPaceLabel" style="@style/ww"
-					android:drawableLeft="@drawable/meter_fast"
-					android:drawablePadding="5dp" android:gravity="center_vertical"
-					android:text="@string/currentPace" android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/currentPaceLabel" style="@style/ww.workoutLabel"
+					android:drawableLeft="@drawable/meter_fast" android:text="@string/currentPace" />
 
-				<TextView android:id="@+id/currentPace" style="@style/ww"
-					android:layout_alignParentRight="false" android:layout_below="@+id/currentPaceLabel"
-					android:layout_marginRight="2dp" android:layout_toLeftOf="@id/currentPaceUnit"
-					android:layout_weight="1" android:text="6.5"
-					android:textSize="@dimen/label_large_text_size" />
+				<TextView android:id="@+id/currentPace" style="@style/ww.workoutValue.label.left"
+					android:layout_below="@+id/currentPaceLabel"
+					android:layout_toLeftOf="@id/currentPaceUnit"
+					android:layout_weight="1" android:text="@string/startValue" />
 
-				<TextView android:id="@id/currentPaceUnit" style="@style/ww"
+				<TextView android:id="@id/currentPaceUnit" style="@style/ww.workoutValue.label"
 					android:layout_alignBaseline="@id/currentPace"
 					android:layout_alignParentRight="true" android:layout_below="@id/currentPaceLabel"
-					android:layout_marginRight="16dp" android:text="@string/kmph"
-					android:textSize="@dimen/label_text_size" />
+					android:text="@string/kmph" />
 			</RelativeLayout>
 
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/avaragePaceLabel" style="@style/ww"
-					android:drawableLeft="@drawable/meter_medium"
-					android:drawablePadding="5dp" android:gravity="center_vertical"
-					android:text="@string/avaragePace" android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/avaragePaceLabel" style="@style/ww.workoutLabel"
+					android:drawableLeft="@drawable/meter_medium" android:text="@string/avaragePace" />
 
-				<TextView android:id="@+id/avaragePace" style="@style/ww"
-					android:layout_alignParentRight="false" android:layout_below="@+id/avaragePaceLabel"
-					android:layout_marginRight="2dp" android:layout_toLeftOf="@id/avaragePaceUnit"
-					android:text="7.5" android:textSize="@dimen/label_large_text_size" />
+				<TextView android:id="@+id/avaragePace" style="@style/ww.workoutValue.label.left"
+					android:layout_below="@+id/avaragePaceLabel"
+					android:layout_toLeftOf="@id/avaragePaceUnit" android:text="@string/startValue" />
 
-				<TextView android:id="@id/avaragePaceUnit" style="@style/ww"
+				<TextView android:id="@id/avaragePaceUnit" style="@style/ww.workoutValue.label"
 					android:layout_alignBaseline="@id/avaragePace"
 					android:layout_alignParentRight="true" android:layout_below="@id/avaragePaceLabel"
-					android:layout_marginRight="16dp" android:text="@string/kmph"
-					android:textSize="@dimen/label_text_size" />
+					android:text="@string/kmph" />
 			</RelativeLayout>
 		</LinearLayout>
 
@@ -127,29 +108,28 @@
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/altituteLabel" style="@style/ww"
-					android:drawableLeft="@drawable/mountain" android:drawablePadding="5dp"
-					android:gravity="center_vertical" android:text="@string/altitude"
-					android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/altituteLabel" style="@style/ww.workoutLabel"
+					android:drawableLeft="@drawable/mountain" android:text="@string/altitude" />
 
-				<TextView android:id="@+id/altitude" style="@style/ww"
-					android:layout_alignParentRight="true" android:layout_below="@+id/altituteLabel"
-					android:layout_marginRight="16dp" android:layout_weight="1"
-					android:text="-" android:textSize="@dimen/label_large_text_size" />
+				<TextView android:id="@+id/altitude" style="@style/ww.workoutValue.label.left"
+					android:layout_below="@+id/altituteLabel" android:layout_weight="1"
+					android:text="@string/startValue" android:layout_toLeftOf="@id/altitudeUnit" />
+
+				<TextView android:id="@id/altitudeUnit" style="@style/ww.workoutValue.label"
+					android:layout_alignBaseline="@id/altitude"
+					android:layout_alignParentRight="true" android:layout_below="@id/altituteLabel"
+					android:text="@string/mnpm" />
 			</RelativeLayout>
 
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/currentTimeLabel" style="@style/ww"
-					android:drawableLeft="@drawable/clock" android:drawablePadding="5dp"
-					android:gravity="center_vertical" android:text="@string/currentTime"
-					android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/currentTimeLabel" style="@style/ww.workoutLabel"
+					android:drawableLeft="@drawable/clock" android:text="@string/currentTime" />
 
-				<TextView android:id="@+id/currentTime" style="@style/ww"
+				<TextView android:id="@+id/currentTime" style="@style/ww.workoutValue"
 					android:layout_alignParentRight="true" android:layout_below="@+id/currentTimeLabel"
-					android:layout_marginRight="16dp" android:text="16:45"
-					android:textSize="@dimen/label_large_text_size" />
+					android:text="@string/startTime" />
 			</RelativeLayout>
 		</LinearLayout>
 
@@ -158,27 +138,23 @@
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/currentPaceLabel" style="@style/ww"
-					android:gravity="center_vertical" android:text="Rodzaj aktywności"
-					android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/activityLabel" style="@style/ww.workoutLabel"
+					android:text="@string/activity" />
 
-				<Spinner android:id="@+id/currentPace" style="@style/ww"
-					android:layout_alignParentRight="true" android:layout_below="@+id/currentPaceLabel"
-					android:layout_marginRight="16dp" android:layout_weight="1"
-					android:text="260" />
+				<Spinner android:id="@+id/activity" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@+id/activityLabel"
+					android:layout_marginRight="16dp" />
 			</RelativeLayout>
 
 			<RelativeLayout android:layout_width="0dp"
 				android:layout_height="wrap_content" android:layout_weight="1">
 
-				<TextView android:id="@+id/avaragePaceLabel" style="@style/ww"
-					android:drawableLeft="@drawable/bars" android:drawablePadding="5dp"
-					android:gravity="center_vertical" android:text="@string/workoutType"
-					android:textSize="@dimen/label_text_size" />
+				<TextView android:id="@+id/kindLabel" style="@style/ww.workoutLabel"
+					android:drawableLeft="@drawable/bars" android:text="@string/workoutType" />
 
-				<Spinner android:id="@+id/avaragePace" style="@style/ww"
-					android:layout_alignParentRight="true" android:layout_below="@+id/avaragePaceLabel"
-					android:layout_marginRight="16dp" android:text="16:45" />
+				<Spinner android:id="@+id/kind" style="@style/ww"
+					android:layout_alignParentRight="true" android:layout_below="@+id/kindLabel"
+					android:layout_marginRight="16dp" />
 			</RelativeLayout>
 		</LinearLayout>
 	</LinearLayout>

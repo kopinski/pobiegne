@@ -5,25 +5,64 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme"></style>
-    
+
     <style name="ww">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    
+
     <style name="mw">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    
+
     <style name="wm">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
     </style>
-    
+
     <style name="mm">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!-- Main layout -->
+    <style name="ww.mainLabel">
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+        <item name="android:textSize">@dimen/xxl_text_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:typeface">normal</item>
+    </style>
+    
+    <style name="ww.subLabel">
+        <item name="android:textColor">@android:color/holo_blue_dark</item>
+        <item name="android:textSize">@dimen/label_large_text_size</item>
+    </style>
+
+    <!-- Etykieta treningu -->
+    <style name="ww.workoutLabel">
+        <item name="android:drawablePadding">@dimen/label_drawable_padding</item>
+        <item name="android:textSize">@dimen/label_text_size</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!-- Wartosc etykiety treningu -->
+    <style name="ww.workoutValue">
+        <item name="android:layout_marginRight">@dimen/value_margin_right</item>
+        <item name="android:textSize">@dimen/label_large_text_size</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <!-- Jednostka etykiety treningu -->
+    <style name="ww.workoutValue.label">
+        <item name="android:textSize">@dimen/label_text_size</item>
+    </style>
+
+    <!-- Wartosc przed jednostka -->
+    <style name="ww.workoutValue.label.left">
+        <item name="android:textSize">@dimen/label_large_text_size</item>
+        <item name="android:layout_alignParentRight">false</item>
+        <item name="android:layout_marginRight">@dimen/value_label_margin_right</item>
     </style>
 
 </resources>
