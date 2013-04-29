@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="src" path=".apt_generated">
@@ -8,8 +8,13 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/com/googlecode/androidannotations/androidannotations/2.6/androidannotations-2.6-api.jar"/>
-	<classpathentry kind="var" path="M2_REPO/joda-time/joda-time/2.2/joda-time-2.2.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/com/googlecode/androidannotations/androidannotations/2.6/androidannotations-2.6-api.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/joda-time/joda-time/2.2/joda-time-2.2.jar"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/tracker-components"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/pl/pobiegne/mobile/tracker-components/0.0.1-SNAPSHOT/tracker-components-0.0.1-SNAPSHOT.apklib"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/pl/pobiegne/mobile/tracker-common/0.0.1-SNAPSHOT/tracker-common-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/tracker-common"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/com/thoughtworks/xstream/xstream/1.4.4/xstream-1.4.4.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
 
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/blue_gradient</item>
+    </style>
+    
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme"></style>
 
@@ -33,7 +39,7 @@
         <item name="android:textStyle">normal</item>
         <item name="android:typeface">normal</item>
     </style>
-    
+
     <style name="ww.subLabel">
         <item name="android:textColor">@android:color/holo_blue_dark</item>
         <item name="android:textSize">@dimen/label_large_text_size</item>
@@ -56,6 +62,7 @@
     <!-- Jednostka etykiety treningu -->
     <style name="ww.workoutValue.label">
         <item name="android:textSize">@dimen/label_text_size</item>
+        <item name="android:layout_alignParentRight">true</item>
     </style>
 
     <!-- Wartosc przed jednostka -->

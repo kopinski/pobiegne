@@ -24,5 +24,6 @@
     <string name="startDistance">0.000</string>
     <string name="startValue">-</string>
     <string name="startTime">--:--</string>
-
+
+    <string name="running">bieganie</string>    <string name="cycling">rower</string>    <string name="nordic">nordic walking</string>    <string name="aerobic">aerobowy</string>    <string name="interval">interwałowy</string>    <string name="start">Rozpocznij trening</string>
 </resources>

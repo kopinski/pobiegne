@@ -11,6 +11,7 @@
     <dimen name="button_stroke">1dp</dimen>
     <dimen name="button_horizontal_padding">20dp</dimen>
     <dimen name="button_vertical_padding">10dp</dimen>
+    <dimen name="button_label_size">30sp</dimen>
 
     <!-- Trening LAyout -->
     <dimen name="label_drawable_padding">5dp</dimen>

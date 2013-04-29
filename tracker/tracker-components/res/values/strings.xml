@@ -2,4 +2,6 @@
 
     <string name="app_name">tracker-components</string>
 
+    <string name="emptyValue">---</string>
+
 </resources>

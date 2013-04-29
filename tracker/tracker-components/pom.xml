@@ -14,7 +14,15 @@
 	<packaging>apklib</packaging>
 
 	<dependencies>
-
+		
+		<!-- Moduł wspolny -->
+		<dependency>
+			<groupId>pl.pobiegne.mobile</groupId>
+			<artifactId>tracker-common</artifactId>
+			<version>${tracker.version}</version>
+			<type>jar</type>
+		</dependency>
+		
 		<!-- Android API -->
 		<dependency>
 			<groupId>com.google.android</groupId>
