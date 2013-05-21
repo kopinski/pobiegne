@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/menu_main"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/workout"
+        android:visible="true">
+    </item>
+    <item
+        android:id="@+id/menu_history"
+        android:orderInCategory="700"
+        android:showAsAction="never"
+        android:title="@string/history"/>
+</menu>

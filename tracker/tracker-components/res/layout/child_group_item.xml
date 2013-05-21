@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@android:color/background_light"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp" >
+    
+    <ImageView
+        android:id="@+id/comp_child_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/comp_default_activity" />
+
+    <TextView
+        android:id="@+id/comp_child_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Name" />
+
+    <ImageView
+        android:id="@+id/comp_bottom_left_icon"
+        style="@style/comp_child_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@+id/comp_child_icon"
+        android:src="@drawable/fire_small" />
+
+    <TextView
+        android:id="@+id/comp_bottom_left"
+        style="@style/comp_child_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@+id/comp_bottom_left_icon"
+        android:text="-" />
+
+    <ImageView
+        android:id="@+id/comp_bottom_right_icon"
+        style="@style/comp_child_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@+id/comp_bottom_center"
+        android:src="@drawable/distance_small" />
+
+    <TextView
+        android:id="@+id/comp_bottom_right"
+        style="@style/comp_child_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@+id/comp_bottom_right_icon"
+        android:text="-" />
+
+    <ImageView
+        android:id="@+id/comp_bottom_center_icon"
+        style="@style/comp_child_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@id/comp_bottom_left"
+        android:src="@drawable/clock_small" />
+
+    <TextView
+        android:id="@+id/comp_bottom_center"
+        style="@style/comp_child_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@id/comp_bottom_center_icon"
+        android:text="-" />
+
+    <ImageView
+        android:id="@+id/comp_right_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/upload" />
+    
+</RelativeLayout>
