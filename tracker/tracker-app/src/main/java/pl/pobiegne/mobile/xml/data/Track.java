@@ -34,6 +34,13 @@ public class Track {
     }
     
     /**
+     * @param trackSegments the trackSegments to set
+     */
+    public void addTrackSegment(TrackSegment trackSegment) {
+        this.trackSegments.add(trackSegment);
+    }
+    
+    /**
      * @return the name
      */
     public String getName() {

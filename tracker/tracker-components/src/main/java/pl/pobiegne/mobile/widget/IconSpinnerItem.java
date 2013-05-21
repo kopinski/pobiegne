@@ -11,13 +11,13 @@ import com.googlecode.androidannotations.annotations.EViewGroup;
 import com.googlecode.androidannotations.annotations.ViewById;
 
 
-@EViewGroup(R.layout.icon_spinner_item)
+@EViewGroup(resName="icon_spinner_item")
 public class IconSpinnerItem extends RelativeLayout {
     
-    @ViewById(R.id.conp_icon_spinner)
+    @ViewById(resName="conp_icon_spinner")
     protected ImageView icon;
     
-    @ViewById(R.id.comp_spinner_label)
+    @ViewById(resName="comp_spinner_label")
     protected TextView label;
     
     

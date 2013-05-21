@@ -75,4 +75,11 @@ public class GPX {
     public void setTracks(ArrayList<Track> tracks) {
         this.tracks = tracks;
     }
+    
+    /**
+     * @param tracks the tracks to set
+     */
+    public void addTrack(Track track) {
+        this.tracks.add(track);
+    }
 }

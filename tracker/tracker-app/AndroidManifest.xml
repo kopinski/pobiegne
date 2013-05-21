@@ -18,13 +18,34 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <!-- Activity logowania -->
-        <activity android:name=".activity.MainActivity_" >
+        <!-- Activity treningu -->
+        <activity
+            android:name=".activity.MainActivity_"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        
+        <!-- Historia treningu -->
+        <activity
+            android:name=".activity.HistoryActivity_"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+            
+        </activity>
+
+        <service
+            android:name=".service.TrackerService"
+            android:process=":remote" >
+        </service>
+
+        <!-- Activity dialog ustawienia GPS -->
+        <activity
+            android:name=".activity.dialog.GPSDialog_"
+            android:theme="@android:style/Theme.Holo.Dialog" >
         </activity>
     </application>
 

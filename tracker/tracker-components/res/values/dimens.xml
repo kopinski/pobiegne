@@ -2,4 +2,8 @@
 <resources>
     <dimen name="icon_label_size">16sp</dimen>
     <dimen name="icon_spinner_item_padding">8dp</dimen>
+    <dimen name="icon_spinner_horizontal_padding">28dp</dimen>
+    <dimen name="child_icon_left_padding">24dp</dimen>
+    <dimen name="child_icon_right_padding">8dp</dimen>
+    <dimen name="child_text">10sp</dimen>
 </resources>

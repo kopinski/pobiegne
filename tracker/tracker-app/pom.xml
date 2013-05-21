@@ -17,10 +17,11 @@
 	<packaging>apk</packaging>
 
 	<properties>
-		<!-- Wersja Joda -->
-		<joda-time.version>2.2</joda-time.version>
 		<!-- Wersja xStream -->
 		<xstream.version>1.4.4</xstream.version>
+
+		<!-- Wersja Joda -->
+		<joda-time.version>2.2</joda-time.version>
 	</properties>
 
 	<dependencies>
@@ -76,6 +77,11 @@
 			<artifactId>support-v4</artifactId>
 			<version>r7</version>
 		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>android.support</groupId> -->
+		<!-- <artifactId>compatibility-v4</artifactId> -->
+		<!-- <version>11</version> -->
+		<!-- </dependency> -->
 
 		<!-- Joda time library -->
 		<dependency>
@@ -96,7 +102,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -112,9 +117,9 @@
 					<sdk>
 						<platform>${android.api.level}</platform>
 					</sdk>
-<!-- 					<run> <debug>true</debug> </run> -->
+					<!-- <run> <debug>true</debug> </run> -->
 					<deleteConflictingFiles>true</deleteConflictingFiles>
-					<!-- <undeployBeforeDeploy>true</undeployBeforeDeploy> -->
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
 				</configuration>
 				<executions>
 					<execution>

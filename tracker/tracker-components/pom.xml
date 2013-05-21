@@ -13,8 +13,13 @@
 
 	<packaging>apklib</packaging>
 
+	<properties>
+
+		<!-- Wersja Joda -->
+		<joda-time.version>2.2</joda-time.version>
+	</properties>
 	<dependencies>
-		
+
 		<!-- Moduł wspolny -->
 		<dependency>
 			<groupId>pl.pobiegne.mobile</groupId>
@@ -22,7 +27,7 @@
 			<version>${tracker.version}</version>
 			<type>jar</type>
 		</dependency>
-		
+
 		<!-- Android API -->
 		<dependency>
 			<groupId>com.google.android</groupId>
@@ -49,6 +54,12 @@
 			<groupId>com.google.android</groupId>
 			<artifactId>support-v4</artifactId>
 			<version>r7</version>
+		</dependency>
+		<!-- Joda time library -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
 		</dependency>
 	</dependencies>
 

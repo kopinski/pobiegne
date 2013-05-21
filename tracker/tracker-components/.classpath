@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/com/googlecode/androidannotations/androidannotations/2.6/androidannotations-2.6-api.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/googlecode/androidannotations/androidannotations-api/2.7.1/androidannotations-api-2.7.1.jar"/>
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -12,5 +12,6 @@
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/tracker-common"/>
 	<classpathentry kind="var" path="M2_REPO/pl/pobiegne/mobile/tracker-common/0.0.1-SNAPSHOT/tracker-common-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="var" path="M2_REPO/joda-time/joda-time/2.2/joda-time-2.2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

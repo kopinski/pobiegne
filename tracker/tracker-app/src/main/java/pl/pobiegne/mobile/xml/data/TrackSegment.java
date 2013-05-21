@@ -30,4 +30,10 @@ public class TrackSegment {
         this.trackPoints = trackPoints;
     }
     
+    /**
+     * @param trackPoints the trackPoints to set
+     */
+    public void addTrackPoint(WayPoint trackPoint) {
+        this.trackPoints.add(trackPoint);
+    }
 }

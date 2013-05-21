@@ -11,6 +11,35 @@
 
 	<artifactId>tracker-common</artifactId>
 	<version>${tracker.version}</version>
-	
+
 	<packaging>jar</packaging>
+
+	<properties>
+		<!-- Wersja Joda -->
+		<joda-time.version>2.2</joda-time.version>
+		<!-- Wersja ormLite -->
+		<ormlire-android.version>4.45</ormlire-android.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- Joda time library -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.j256.ormlite</groupId>
+			<artifactId>ormlite-android</artifactId>
+			<version>${ormlire-android.version}</version>
+			<!-- <exclusions> -->
+			<!-- <exclusion> -->
+			<!-- <groupId>com.j256.ormlite</groupId> -->
+			<!-- <artifactId>ormlite-core</artifactId> -->
+			<!-- </exclusion> -->
+			<!-- </exclusions> -->
+		</dependency>
+	</dependencies>
 </project>
