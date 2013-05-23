@@ -3,6 +3,7 @@ package pl.pobiegne.mobile.adapter;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 
 import org.joda.time.DateTime;
@@ -57,6 +58,7 @@ public class HistoryAdapter extends BaseExpandableListAdapter {
     public void initAdapter() {
         items = itemManager.selectAll();
         if (items != null) {
+            Collections.sort(items);
             DateTime end = new DateTime().dayOfMonth().withMaximumValue();
             DateTime start =
                     new DateTime(end.getYear(), end.getMonthOfYear(), end.dayOfMonth().withMinimumValue()

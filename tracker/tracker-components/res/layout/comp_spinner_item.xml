@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/icon_spinner_item_padding"
-    android:paddingLeft="@dimen/icon_spinner_horizontal_padding"
-    android:paddingRight="@dimen/icon_spinner_horizontal_padding"
-    android:paddingTop="@dimen/icon_spinner_item_padding" >
+    android:layout_height="?android:attr/actionBarSize"
+    android:paddingLeft="@dimen/icon_spinner_item_padding" >
 
     <ImageView
         android:id="@+id/conp_icon_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside" />
 
     <TextView
         android:id="@+id/comp_spinner_label"

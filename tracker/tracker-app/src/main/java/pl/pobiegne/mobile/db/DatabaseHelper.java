@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import org.joda.time.DateTime;
 
 import pl.pobiegne.mobile.common.api.db.Route;
+import pl.pobiegne.mobile.common.api.db.WorkoutType;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -60,7 +61,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             route.setDistance(7525.54);
             route.setWorkoutPointsCount(135);
             route.setWorkoutTime(1204584);
-            
+            route.setActivity(WorkoutType.CYCLING);
             routetDao.createOrUpdate(route);
             
             Route route2 = new Route();
@@ -68,19 +69,64 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             route2.setCalories(182);
             route2.setDate(new DateTime(2013,04,11,0,0));
             route2.setWorkoutTime(8204584);
+            route2.setActivity(WorkoutType.RUNNING);
             routetDao.createOrUpdate(route2);
             
             Route route3 = new Route();
             route3.setName("Trasa z dnia 08-03-2013");
             route3.setCalories(486);
             route3.setDate(new DateTime(2013,03,8,0,0));
+            route3.setActivity(WorkoutType.RUNNING);
             routetDao.createOrUpdate(route3);
             
             Route route4 = new Route();
             route4.setName("Trasa z dnia 01-04-2013");
             route4.setCalories(584);
             route4.setDate(new DateTime(2013,04,1,0,0));
+            route4.setActivity(WorkoutType.RUNNING);
             routetDao.createOrUpdate(route4);
+            
+            Route route5 = new Route();
+            route5.setName("Trasa z dnia 09-04-2013");
+            route5.setCalories(584);
+            route5.setDate(new DateTime(2013,04,9,0,0));
+            route5.setActivity(WorkoutType.WALKING);
+            routetDao.createOrUpdate(route5);
+            
+            Route route6 = new Route();
+            route6.setName("Trasa z dnia 07-04-2013");
+            route6.setCalories(584);
+            route6.setDate(new DateTime(2013,04,7,0,0));
+            route6.setActivity(WorkoutType.HIKING);
+            routetDao.createOrUpdate(route6);
+            
+            Route route7 = new Route();
+            route7.setName("Trasa z dnia 04-04-2013");
+            route7.setCalories(584);
+            route7.setDate(new DateTime(2013,04,4,0,0));
+            route7.setActivity(WorkoutType.RUNNING);
+            routetDao.createOrUpdate(route7);
+            
+            Route route8 = new Route();
+            route8.setName("Trasa z dnia 17-04-2013");
+            route8.setCalories(584);
+            route8.setDate(new DateTime(2013,04,17,0,0));
+            route8.setActivity(WorkoutType.RUNNING);
+            routetDao.createOrUpdate(route8);
+            
+            Route route9 = new Route();
+            route9.setName("Trasa z dnia 27-04-2013");
+            route9.setCalories(584);
+            route9.setDate(new DateTime(2013,04,27,0,0));
+            route9.setActivity(WorkoutType.RUNNING);
+            routetDao.createOrUpdate(route9);
+            
+            Route route10 = new Route();
+            route10.setName("Trasa z dnia 24-04-2013");
+            route10.setCalories(584);
+            route10.setDate(new DateTime(2013,04,24,0,0));
+            route10.setActivity(WorkoutType.RUNNING);
+            routetDao.createOrUpdate(route10);
             
             Log.i(TAG, "utworzono nowe rekodry w metodzie " + methodName + " TIME: "
                     + (System.currentTimeMillis() - millis));

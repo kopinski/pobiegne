@@ -44,7 +44,7 @@ public class ChildGroupItem extends LinearLayout {
     
     public ChildGroupItem(Context context) {
         super(context);
-        timeFormatter = DateTimeFormat.forPattern("HH:mm:ss");
+        timeFormatter = DateTimeFormat.forPattern("HH:mm:ss").withZoneUTC();
     }
     
     public void bind(final Route data) {
@@ -57,6 +57,28 @@ public class ChildGroupItem extends LinearLayout {
         }
         else {
             rightIcon.setBackgroundResource(R.drawable.upload);
+        }
+        if (data.getActivity() != null) {
+            switch (data.getActivity()) {
+                case RUNNING:
+                    leftIcon.setBackgroundResource(R.drawable.comp_running);
+                    break;
+                case CYCLING:
+                    leftIcon.setBackgroundResource(R.drawable.comp_bicycle);
+                    break;
+                case HIKING:
+                    leftIcon.setBackgroundResource(R.drawable.comp_trekking);
+                    break;
+                case WALKING:
+                    leftIcon.setBackgroundResource(R.drawable.comp_walking);
+                    break;
+                default:
+                    leftIcon.setBackgroundResource(R.drawable.comp_default_activity);
+                    break;
+            }
+        }
+        else {
+            leftIcon.setBackgroundResource(R.drawable.comp_default_activity);
         }
     }
 }

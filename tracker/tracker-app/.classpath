@@ -12,8 +12,6 @@
 	<classpathentry exported="true" kind="var" path="M2_REPO/joda-time/joda-time/2.2/joda-time-2.2.jar"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/tracker-components"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/pl/pobiegne/mobile/tracker-components/0.0.1-SNAPSHOT/tracker-components-0.0.1-SNAPSHOT.apklib"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/pl/pobiegne/mobile/tracker-common/0.0.1-SNAPSHOT/tracker-common-0.0.1-SNAPSHOT.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/tracker-common"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/com/thoughtworks/xstream/xstream/1.4.4/xstream-1.4.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/j256/ormlite/ormlite-android/4.45/ormlite-android-4.45.jar"/>

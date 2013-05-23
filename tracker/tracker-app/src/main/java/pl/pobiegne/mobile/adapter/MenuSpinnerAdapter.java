@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pl.pobiegne.mobile.R;
 import pl.pobiegne.mobile.common.api.IconItemData;
-import pl.pobiegne.mobile.navigation.Navigate;
+import pl.pobiegne.mobile.navigation.NavigationManager.Navigate;
 import pl.pobiegne.mobile.widget.MenuSpinnerItem;
 import pl.pobiegne.mobile.widget.MenuSpinnerItem_;
 import android.view.View;
@@ -14,22 +14,31 @@ import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.res.StringRes;
 
+
 @EBean
 public class MenuSpinnerAdapter extends BaseSpinnerAdapter {
     
-    @StringRes(R.string.running)
-    protected String runningLabel;
+    @StringRes(R.string.menu_workout)
+    protected String workout;
     
-    @StringRes(R.string.cycling)
-    protected String cyclingLabel;
+    @StringRes(R.string.menu_history)
+    protected String history;
+    
+    @StringRes(R.string.menu_profile)
+    protected String profile;
+    
+    @StringRes(R.string.menu_exit)
+    protected String exit;
     
     
     @Override
     @AfterViews
     protected void initializeIcons() {
         itemDataList = new ArrayList<IconItemData>();
-        itemDataList.add(new IconItemData(R.drawable.running, runningLabel, Navigate.MAIN));
-        itemDataList.add(new IconItemData(R.drawable.bicycle, cyclingLabel, Navigate.HISTORY));
+        itemDataList.add(new IconItemData(R.drawable.menu_logo, workout, Navigate.MAIN.ordinal()));
+        itemDataList.add(new IconItemData(R.drawable.today, history, Navigate.HISTORY.ordinal()));
+        itemDataList.add(new IconItemData(R.drawable.edit_profile, profile, Navigate.PROFILE.ordinal()));
+        itemDataList.add(new IconItemData(R.drawable.exit, exit, Navigate.EXIT.ordinal()));
     }
     
     @Override
@@ -43,7 +52,6 @@ public class MenuSpinnerAdapter extends BaseSpinnerAdapter {
         }
         
         itemView.bind(getItem(position));
-        
         return itemView;
     }
 }

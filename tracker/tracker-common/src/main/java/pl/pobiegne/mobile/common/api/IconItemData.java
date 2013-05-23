@@ -6,7 +6,7 @@ public class IconItemData {
 
 	private String label;
 	
-	private int menu;
+	private int item;
 
 	public IconItemData() {
 	}
@@ -20,10 +20,10 @@ public class IconItemData {
 		this.label = label;
 	}
 	
-	public IconItemData(int icon, String label, int menu) {
+	public IconItemData(int icon, String label, int item) {
 		this.icon = icon;
 		this.label = label;
-		this.menu = menu;
+		this.item = item;
 	}
 
 	/**
@@ -56,17 +56,11 @@ public class IconItemData {
 		this.label = label;
 	}
 
-	/**
-	 * @return the menu
-	 */
-	public int getMenu() {
-		return menu;
+	public int getItem() {
+		return item;
 	}
 
-	/**
-	 * @param menu the menu to set
-	 */
-	public void setMenu(int menu) {
-		this.menu = menu;
+	public void setItem(int item) {
+		this.item = item;
 	}
 }

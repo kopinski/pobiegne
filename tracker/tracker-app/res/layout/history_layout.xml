@@ -5,56 +5,84 @@
 	android:background="@color/background_color" android:orientation="vertical"
 	tools:context=".activity.MainActivity_">
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:padding="5dp"
-        android:useDefaultMargins="true" >
+        android:orientation="horizontal"
+        android:padding="8dp" >
 
-        <TextView
-            android:id="@+id/history_header_left"
-            android:layout_column="0"
-            android:layout_gravity="right|center_vertical"
-            android:layout_row="0"
-            android:text="@string/header_distance" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/history_row_left"
-            android:layout_column="0"
-            android:layout_gravity="right|center_vertical"
-            android:layout_row="2"
-            android:text="@string/startValue" />
+            <TextView
+                android:id="@+id/history_header_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/header_distance" />
 
-        <TextView
-            android:id="@+id/history_header_center"
-            android:layout_column="1"
-            android:layout_gravity="right|center_vertical"
-            android:layout_row="0"
-            android:text="@string/header_time" />
+            <TextView
+                android:id="@+id/history_row_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/startValue"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/history_row_center"
-            android:layout_column="1"
-            android:layout_gravity="right|center_vertical"
-            android:layout_row="2"
-            android:text="@string/startTime" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/history_header_right"
-            android:layout_column="2"
-            android:layout_gravity="right|center_vertical"
-            android:layout_row="0"
-            android:text="@string/header_calories" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/history_row_right"
-            android:layout_column="2"
-            android:layout_gravity="right|center_vertical"
-            android:layout_row="2"
-            android:text="@string/startValue" />
+            <TextView
+                android:id="@+id/history_header_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/header_time" />
 
-    </GridLayout>
+            <TextView
+                android:id="@+id/history_row_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/startTime"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/history_header_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/header_calories" />
+
+            <TextView
+                android:id="@+id/history_row_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/startValue"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
 
     <ExpandableListView
         android:id="@+id/historyList"

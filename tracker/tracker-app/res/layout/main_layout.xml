@@ -41,17 +41,19 @@
 				android:layout_marginLeft="16dp" android:layout_marginRight="16dp"
 				android:orientation="vertical">
 
-				<RelativeLayout android:id="@+id/targetLayout"
-					android:layout_width="match_parent" android:layout_height="wrap_content">
+				<!-- <RelativeLayout android:id="@+id/targetLayout" -->
+				<!-- android:layout_width="match_parent" android:layout_height="wrap_content"> -->
 
-					<TextView android:id="@+id/target" style="@style/ww.workoutLabel"
-						android:drawableLeft="@drawable/target" android:text="@string/target" />
+				<!-- <TextView android:id="@+id/target" style="@style/ww.workoutLabel" -->
+				<!-- android:drawableLeft="@drawable/target" android:text="@string/target" 
+					/> -->
 
-					<ProgressBar android:id="@+id/targetProgress"
-						style="?android:attr/progressBarStyleHorizontal"
-						android:layout_width="match_parent" android:layout_height="wrap_content"
-						android:layout_below="@id/target" android:layout_marginBottom="8dp" />
-				</RelativeLayout>
+				<!-- <ProgressBar android:id="@+id/targetProgress" -->
+				<!-- style="?android:attr/progressBarStyleHorizontal" -->
+				<!-- android:layout_width="match_parent" android:layout_height="wrap_content" -->
+				<!-- android:layout_below="@id/target" android:layout_marginBottom="8dp" 
+					/> -->
+				<!-- </RelativeLayout> -->
 
 				<LinearLayout style="@style/mw" android:layout_width="match_parent"
 					android:baselineAligned="false">
@@ -178,35 +180,30 @@
 	<RelativeLayout android:id="@+id/startLayout" style="@style/mw"
 		android:layout_width="match_parent" android:layout_marginTop="@dimen/button_vertical_padding">
 
-		<Button android:id="@+id/start" style="@style/ww"
+		<Button android:id="@+id/start" style="@style/ww.colorButton"
 			android:layout_alignParentLeft="false" android:layout_alignParentTop="true"
 			android:layout_centerInParent="true" android:background="@drawable/green_button"
-			android:shadowColor="@android:color/black" android:shadowRadius="5"
-			android:text="@string/start" android:textColor="@android:color/white"
-			android:textSize="@dimen/button_label_size"/>
+			android:text="@string/start" />
+
 	</RelativeLayout>
 
 	<RelativeLayout android:id="@+id/stopLayout" style="@style/mw"
 		android:layout_gravity="bottom" android:layout_marginTop="@dimen/button_vertical_padding"
 		android:visibility="gone">
 
-		<Button android:id="@+id/pauseWorkout" style="@style/ww"
+		<Button android:id="@+id/pauseWorkout" style="@style/ww.colorButton"
 			android:layout_alignParentLeft="false" android:layout_alignParentTop="true"
 			android:layout_toLeftOf="@id/dummyView" android:background="@drawable/orange_gradient"
-			android:shadowColor="@android:color/black" android:shadowRadius="5"
-			android:text="@string/pause" android:textColor="@android:color/white"
-			android:textSize="@dimen/button_label_size" />
+			android:text="@string/pause" />
 
 		<View android:id="@+id/dummyView" android:layout_width="40dp"
 			android:layout_height="20dp" android:layout_centerInParent="true" />
 
-		<Button android:id="@+id/stopWorkout" style="@style/ww"
+		<Button android:id="@+id/stopWorkout" style="@style/ww.colorButton"
 			android:layout_alignParentRight="false"
 			android:layout_alignParentTop="true" android:layout_marginRight="44dp"
 			android:layout_toRightOf="@id/dummyView" android:background="@drawable/red_gradient"
-			android:shadowColor="@android:color/black" android:shadowRadius="5"
-			android:text="@string/stop" android:textColor="@android:color/white"
-			android:textSize="@dimen/button_label_size" />
+			android:text="@string/stop" />
 
 	</RelativeLayout>
 

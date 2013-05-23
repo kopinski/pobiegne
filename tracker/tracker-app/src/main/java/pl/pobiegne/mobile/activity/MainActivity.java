@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import org.joda.time.DateTime;
-import org.joda.time.Duration;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import pl.pobiegne.mobile.R;
 import pl.pobiegne.mobile.adapter.BaseSpinnerAdapter;
 import pl.pobiegne.mobile.adapter.IconSpinnerAdapter;
-import pl.pobiegne.mobile.adapter.MenuSpinnerAdapter;
 import pl.pobiegne.mobile.common.api.db.Route;
 import pl.pobiegne.mobile.dao.IRoute;
 import pl.pobiegne.mobile.dao.RouteManager;
-import pl.pobiegne.mobile.navigation.Navigate;
+import pl.pobiegne.mobile.navigation.NavigationManager;
+import pl.pobiegne.mobile.navigation.NavigationManager.Navigate;
 import pl.pobiegne.mobile.service.TrackerService;
+import pl.pobiegne.mobile.util.Stopwatch;
 import pl.pobiegne.mobile.util.StorageUtil;
 import pl.pobiegne.mobile.xml.converter.HashMapConverter;
 import pl.pobiegne.mobile.xml.converter.JodaTimeConverter;
@@ -25,8 +25,6 @@ import pl.pobiegne.mobile.xml.data.GPX;
 import pl.pobiegne.mobile.xml.data.Track;
 import pl.pobiegne.mobile.xml.data.TrackSegment;
 import pl.pobiegne.mobile.xml.data.WayPoint;
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
@@ -56,7 +54,6 @@ import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
-import com.googlecode.androidannotations.annotations.Extra;
 import com.googlecode.androidannotations.annotations.Trace;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -104,8 +101,9 @@ public class MainActivity extends Activity {
     @Bean
     protected IconSpinnerAdapter iconAdapter;
     
+    /** ActionBar Menu */
     @Bean
-    protected MenuSpinnerAdapter menuAdapter;
+    protected NavigationManager navigation;
     
     @Bean(RouteManager.class)
     protected IRoute routeManager;
@@ -141,6 +139,11 @@ public class MainActivity extends Activity {
      * Nazwa klasy do logowania.
      */
     private final String TAG = this.getClass().getSimpleName();
+    
+    /**
+     * Formater godziny.
+     */
+    private DateTimeFormatter timeFormatterwithUTC = DateTimeFormat.forPattern("HH:mm:ss").withZoneUTC();
     
     /**
      * Formater godziny.
@@ -193,7 +196,7 @@ public class MainActivity extends Activity {
     
     final Messenger mMessenger = new Messenger(new IncomingHandler());
     
-    private Duration workouDuration;
+    private Stopwatch stopwatch;
     
     /**
      * Polaczenie do serwisu lokalizujacego.
@@ -215,9 +218,6 @@ public class MainActivity extends Activity {
             service = null;
         }
     };
-    
-    @Extra
-    int selectedValue;
     
     
     @Override
@@ -242,46 +242,14 @@ public class MainActivity extends Activity {
         track.setTrackSegments(trackSegmentList);
         gpx.addTrack(track);
         status = STOPED;
-        workouDuration = new Duration(0);
-    }
-    
-    private void prepareActionBarMenu() {
-        ActionBar actionBar = getActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        
-        ActionBar.OnNavigationListener navigationListener = new OnNavigationListener() {
-            
-            @Override
-            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-                setSelectedValue(itemPosition);
-                return true;
-            }
-        };
-        
-        actionBar.setListNavigationCallbacks(menuAdapter, navigationListener);
-        actionBar.setSelectedNavigationItem(selectedValue);
-    }
-    
-    protected void setSelectedValue(int itemPosition) {
-        switch (itemPosition) {
-            case Navigate.MAIN:
-                break;
-            case Navigate.HISTORY:
-                Intent intent = new Intent(MainActivity.this, HistoryActivity_.class);
-                startActivity(intent);
-                break;
-            default:
-                break;
-        }
+        stopwatch = new Stopwatch();
     }
     
     @AfterViews
     void initializeView() {
         final String methodName = "after";
         Log.d(TAG, "START - " + methodName);
-        prepareActionBarMenu();
+        navigation.setSelected(Navigate.MAIN);
         clock.setText(timeFormatter.print(DateTime.now()));
         updateClock();
         pauseDrawable.setAlpha(128);
@@ -295,8 +263,7 @@ public class MainActivity extends Activity {
     protected void updateClock() {
         clock.setText(timeFormatter.print(DateTime.now()));
         if (status == STARTED) {
-            workouDuration = workouDuration.plus(1000);
-            workoutTime.setText(timeFormatter.print(workouDuration.getMillis()));
+            workoutTime.setText(timeFormatterwithUTC.print(stopwatch.getDuration()));
         }
         updateClock();
     }
@@ -304,12 +271,7 @@ public class MainActivity extends Activity {
     @Trace
     @Click(R.id.start)
     protected void onStartClick() {
-        try {
-            Message msg = Message.obtain(null, TrackerService.MSG_PROVIDER_CHANGE);
-            service.send(msg);
-        }
-        catch (RemoteException e) {
-        }
+        askIfLocationRequested();
         if (requested) {
             startLayout.setVisibility(View.GONE);
             stopLayout.setVisibility(View.VISIBLE);
@@ -318,14 +280,49 @@ public class MainActivity extends Activity {
                 track.addTrackSegment(newTrkSeg);
             }
             status = STARTED;
+            stopwatch.start();
         }
         else {
             Toast.makeText(this, getText(R.string.gpsDisabled), Toast.LENGTH_LONG).show();
         }
     }
     
+    /** Generuje zapytanie do serwisu czy GPS jest wlaczony */
+    private void askIfLocationRequested() {
+        try {
+            if (service != null) {
+                Message msg = Message.obtain(null, TrackerService.MSG_PROVIDER_CHANGE);
+                service.send(msg);
+            }
+        }
+        catch (RemoteException e) {
+        }
+    }
+    
+    @Trace
+    @Click(R.id.pauseWorkout)
+    protected void onPauseClick() {
+        if (status == STARTED) {
+            status = PAUSED;
+            stopwatch.stop();
+            pause.setText(R.string.resume);
+            statisticLayout.setForeground(pauseDrawable);
+            statisticLayout.requestFocus();
+        }
+        else if (status == PAUSED) {
+            status = STARTED;
+            stopwatch.start();
+            pause.setText(R.string.pause);
+            statisticLayout.setForeground(null);
+            statisticLayout.clearFocus();
+        }
+    }
+    
     @Click(R.id.stopWorkout)
     protected void onStopClick() {
+        if (status != PAUSED) { // trzeba zatrzymywac, poniewaz jest jeszcze zatrzymany
+            stopwatch.stop();
+        }
         stopLayout.setVisibility(View.GONE);
         startLayout.setVisibility(View.VISIBLE);
         ProgressDialog progressDialog = new ProgressDialog(this);
@@ -341,8 +338,10 @@ public class MainActivity extends Activity {
         route.setDate(new DateTime());
         route.setDistance(totalDistance * 1000);
         route.setName(track.getName());
+        route.setActivity(iconAdapter.getSelectedWorkout(activitySpinner.getSelectedItemPosition()));
         route.setTotalTime(System.currentTimeMillis() - firstTime);
-        route.setWorkoutTime(workouDuration.getMillis());
+        route.setWorkoutTime(stopwatch.getDuration());
+        
         routeManager.saveRoute(route);
         StorageUtil storage = new StorageUtil(this);
         boolean savingResult =
@@ -356,6 +355,7 @@ public class MainActivity extends Activity {
         progressDialog.dismiss();
         Intent intent = new Intent(MainActivity.this, HistoryActivity_.class);
         startActivity(intent);
+        resetFields();
     }
     
     @Trace
@@ -364,21 +364,19 @@ public class MainActivity extends Activity {
         onPauseClick();
     }
     
-    @Trace
-    @Click(R.id.pauseWorkout)
-    protected void onPauseClick() {
-        if (status == STARTED) {
-            status = PAUSED;
-            pause.setText(R.string.resume);
-            statisticLayout.setForeground(pauseDrawable);
-            statisticLayout.requestFocus();
-        }
-        else {
-            status = STARTED;
-            pause.setText(R.string.pause);
-            statisticLayout.setForeground(null);
-            statisticLayout.clearFocus();
-        }
+    private void resetFields() {
+        gpx = new GPX();
+        totalDistance = 0;
+        trackSegmentList = new ArrayList<TrackSegment>();
+        track = new Track();
+        
+        // czyszczenie layoutu
+        workoutTime.setText(R.string.startTime);
+        avaragePace.setText(R.string.emptyValue);
+        currentPace.setText(R.string.emptyValue);
+        altitude.setText(R.string.emptyValue);
+        distance.setText(R.string.startDistance);
+        statisticLayout.setBackgroundDrawable(null);
     }
     
     @Override
@@ -391,6 +389,8 @@ public class MainActivity extends Activity {
     @Trace
     protected void onResume() {
         super.onResume();
+        navigation.buildActionBar(); // tworzenie ActionBar menu
+        askIfLocationRequested();
     }
     
     @Override
