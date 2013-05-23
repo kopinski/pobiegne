@@ -23,7 +23,6 @@
     <string name="gpsServiceContent">Odbiornik GPS jest wyłączony. Czy chcesz przejść do menu ustawień?</string>
     <string name="confirmExit">Czy na pewno chcesz opuścić aplikację?</string>
     
-    
     <!-- Trening -->
     <string name="workout">Trening</string>
     <string name="history">Historia</string>
@@ -52,5 +51,11 @@
 
     <!-- Rodzaje aktywnosci -->
     <string name="running">bieganie</string>    <string name="cycling">rower</string>    <string name="hiking">wspinaczka</string>    <string name="walking">spacer</string>
+    
+    <!-- Profil -->
+    <string name="birthday">Data urodzenia</string>
+    <string name="sex">Płeć</string>
+    <string name="height">Wzrost</string>
+    <string name="weight">Waga</string>
         <string name="nordic">nordic walking</string>    <string name="aerobic">aerobowy</string>    <string name="interval">interwałowy</string>    <string name="start">Rozpocznij trening</string>    <string name="gpsDisabled">Odbiornik GPS nie jest włączony.</string>    <string name="header_distance">Łączny dystans</string>    <string name="header_time">Łączny czas</string>    <string name="header_calories">Spalone kalorie</string>
 </resources>
