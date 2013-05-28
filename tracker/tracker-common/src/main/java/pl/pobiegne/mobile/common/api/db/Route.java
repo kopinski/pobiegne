@@ -67,6 +67,18 @@ public class Route implements Comparable<Route> {
 	 */
 	@DatabaseField
 	private WorkoutType activity;
+	
+	/**
+	 * Intensywnosc treningu.
+	 */
+	@DatabaseField
+	private WorkoutIntensivity type;
+	
+	/**
+	 * Rodzaj aktywnosci.
+	 */
+	@DatabaseField
+	private String xml;
 
 	/**
 	 * @return the id
@@ -216,6 +228,34 @@ public class Route implements Comparable<Route> {
 	 */
 	public void setActivity(WorkoutType activity) {
 		this.activity = activity;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public WorkoutIntensivity getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(WorkoutIntensivity type) {
+		this.type = type;
+	}
+
+	/**
+	 * @return the xml
+	 */
+	public String getXml() {
+		return xml;
+	}
+
+	/**
+	 * @param xml the xml to set
+	 */
+	public void setXml(String xml) {
+		this.xml = xml;
 	}
 
 	public int compareTo(Route o) {

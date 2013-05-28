@@ -21,6 +21,8 @@ public class WayPoint {
     @XStreamAsAttribute
     private double lat = 0.0;
     
+    public WayPoint() {
+    }
     
     public WayPoint(final double elevation, final DateTime time, final double lon, final double lat) {
         this.elevation = elevation;

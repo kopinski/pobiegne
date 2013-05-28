@@ -14,5 +14,15 @@ public interface IRoute {
      */
     ArrayList<Route> selectAll();
     
-    void saveRoute(Route route);
+    /**
+     * Metoda pobierajaca z bazy szczegoly trasy.
+     */
+    Route select(int id);
+    
+    /**
+     * Metoda usuwajaca z bazy trase o wskazanym id.
+     */
+    int delete(int id);
+    
+    boolean saveRoute(Route route);
 }

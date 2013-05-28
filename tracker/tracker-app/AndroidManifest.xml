@@ -3,14 +3,24 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <permission
+        android:name="pl.pobiegne.mobile.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +28,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
+        <!-- AKTYWNOSCI -->
         <!-- Activity treningu -->
         <activity
             android:name=".activity.MainActivity_"
@@ -25,28 +36,55 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <!-- Historia treningu -->
         <activity
             android:name=".activity.HistoryActivity_"
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
-            
         </activity>
 
+        <!-- Profil uzytkownika -->
+        <activity
+            android:name=".activity.ProfileActivity_"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- Szczegoly trasy -->
+        <activity
+            android:name=".activity.DetailActivity_"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- SERWISY -->
+        <!-- Serwis lokalizujacy -->
         <service
             android:name=".service.TrackerService"
             android:process=":remote" >
         </service>
 
+        <!-- DIALOGI -->
         <!-- Activity dialog ustawienia GPS -->
         <activity
-            android:name=".activity.dialog.GPSDialog_"
+            android:name=".dialog.GPSDialog_"
             android:theme="@android:style/Theme.Holo.Dialog" >
         </activity>
+
+        <!-- Dialog do wybrania wartosci numerycznej z number pickera -->
+        <activity
+            android:name=".dialog.NumberPickerDialog_"
+            android:theme="@android:style/Theme.Holo.Dialog" >
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCwnrkTJNsDlllwwCqWvuRP0C0w7ri3LSU" />
     </application>
 
 </manifest>

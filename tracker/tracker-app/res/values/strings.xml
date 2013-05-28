@@ -22,6 +22,14 @@
     <string name="gpsServiceTitle">Włączanie GPS</string>
     <string name="gpsServiceContent">Odbiornik GPS jest wyłączony. Czy chcesz przejść do menu ustawień?</string>
     <string name="confirmExit">Czy na pewno chcesz opuścić aplikację?</string>
+    <string name="numberSelect">Wybierz wartość:</string>
+    <string name="errorNumberPicker">Nie można zmienić wartości pola.</string>
+    <string name="routeSaving">Zapiswyanie trasy ...</string>
+    <string name="routeLoading">Wczytywanie trasy ...</string>
+    <string name="routeDelete">Uwsuwanie trasy</string>
+    <string name="routeDeleteConfirm">Czy na pewno chcesz usunąć wybraną trasę?</string>
+    <string name="routeDeleted">Trasa została usunięta.</string>
+    <string name="routeDeletionError">Błąd podczas usuwania trasy.</string>
     
     <!-- Trening -->
     <string name="workout">Trening</string>
@@ -37,7 +45,9 @@
     <string name="workoutTime">Czas treningu</string>
     <string name="burnCalories">Spalone kalorie</string>
     <string name="currentPace">Bieżące tempo</string>
-    <string name="avaragePace">Średnie tempo</string>
+    <string name="currentSpeed">Bieżąca prędkość</string>
+    <string name="averagePace">Średnie tempo</string>
+    <string name="averageSpeed">Średnia prędkość</string>
     <string name="altitude">Wysokość</string>
     <string name="currentTime">Aktualny czas</string>
     <string name="activity">Rodzaj aktywności</string>
@@ -57,5 +67,20 @@
     <string name="sex">Płeć</string>
     <string name="height">Wzrost</string>
     <string name="weight">Waga</string>
-        <string name="nordic">nordic walking</string>    <string name="aerobic">aerobowy</string>    <string name="interval">interwałowy</string>    <string name="start">Rozpocznij trening</string>    <string name="gpsDisabled">Odbiornik GPS nie jest włączony.</string>    <string name="header_distance">Łączny dystans</string>    <string name="header_time">Łączny czas</string>    <string name="header_calories">Spalone kalorie</string>
+    <string name="kg">kg</string>
+    <string name="cm">cm</string>
+    
+    <!-- Szczegoly -->
+    <string name="map">MAPA</string>
+    <string name="details">SZCZAGÓŁY</string>
+    <string name="detailsTitle">Szczegóły treningu</string>
+    <string name="deleteWorkout">Usuń trening</string>
+    <string name="saveWorkout">Zapisz do pliku</string>
+    <string name="saveError">Nie udało się zapisać treningu.</string>
+    <string name="saveDone">Zapisano na karcie pamięci w folderze pobiegne.</string>
+    <string name="sendDone">Pomyślnie wysłana na pobiegne.pl</string>
+    <string name="sendWorkout">Wyślij na pobiegne.pl</string>
+    <string name="sendError">Błąd podczas wysyłąnia na serwer.</string>
+
+    <string name="nordic">nordic walking</string>    <string name="aerobic">aerobowy</string>    <string name="interval">interwałowy</string>    <string name="start">Rozpocznij trening</string>    <string name="gpsDisabled">Odbiornik GPS nie jest włączony.</string>    <string name="header_distance">Łączny dystans</string>    <string name="header_time">Łączny czas</string>    <string name="header_calories">Spalone kalorie</string>
 </resources>

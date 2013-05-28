@@ -1,4 +1,4 @@
-package pl.pobiegne.mobile.activity.dialog;
+package pl.pobiegne.mobile.dialog;
 
 import pl.pobiegne.mobile.R;
 import android.app.Activity;

@@ -5,11 +5,10 @@ public class IconItemData {
 	private int icon;
 
 	private String label;
-	
-	private int item;
 
-	public IconItemData() {
-	}
+	private String subLabel;
+
+	private int item;
 
 	public IconItemData(String label) {
 		this.label = label;
@@ -19,7 +18,14 @@ public class IconItemData {
 		this.icon = icon;
 		this.label = label;
 	}
-	
+
+	public IconItemData(int icon, String label, String subLabel, int item) {
+		this.icon = icon;
+		this.label = label;
+		this.subLabel = subLabel;
+		this.item = item;
+	}
+
 	public IconItemData(int icon, String label, int item) {
 		this.icon = icon;
 		this.label = label;
@@ -62,5 +68,20 @@ public class IconItemData {
 
 	public void setItem(int item) {
 		this.item = item;
+	}
+
+	/**
+	 * @return the subLabel
+	 */
+	public String getSubLabel() {
+		return subLabel;
+	}
+
+	/**
+	 * @param subLabel
+	 *            the subLabel to set
+	 */
+	public void setSubLabel(String subLabel) {
+		this.subLabel = subLabel;
 	}
 }

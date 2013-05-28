@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/delete"
+        android:enabled="true"
+        android:icon="@drawable/delete_property"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/deleteWorkout"
+        android:visible="true">
+    </item>
+    <item
+        android:id="@+id/sendToServer"
+        android:enabled="true"
+        android:icon="@drawable/upload"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/sendWorkout"
+        android:visible="true">
+    </item>
+    <item
+        android:id="@+id/saveToFile"
+        android:enabled="true"
+        android:icon="@drawable/save"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/saveWorkout">
+    </item>
+</menu>

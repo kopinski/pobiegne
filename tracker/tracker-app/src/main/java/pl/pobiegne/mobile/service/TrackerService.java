@@ -2,7 +2,7 @@ package pl.pobiegne.mobile.service;
 
 import pl.pobiegne.mobile.R;
 import pl.pobiegne.mobile.activity.MainActivity_;
-import pl.pobiegne.mobile.activity.dialog.GPSDialog_;
+import pl.pobiegne.mobile.dialog.GPSDialog_;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -32,7 +32,9 @@ public class TrackerService extends Service implements LocationListener {
     
     public static final int MSG_REGISTER_CLIENT = 2;
     
-    public static final long MIN_TIME_UPDATE = 0;
+    public static final int MSG_REGISTER_PROVIDER = 3;
+    
+    public static final long MIN_TIME_UPDATE = 3;
     
     public static final long MIN_DITANCE_UPDATE = 0;
     
@@ -99,7 +101,7 @@ public class TrackerService extends Service implements LocationListener {
     @Override
     public boolean onUnbind(Intent intent) {
         locationManager.removeUpdates(this);
-        notificationManager.cancel(R.string.app_name);
+        notificationManager.cancelAll();
         return super.onUnbind(intent);
     }
     
@@ -152,8 +154,15 @@ public class TrackerService extends Service implements LocationListener {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_REGISTER_CLIENT:
-//                    Toast.makeText(getApplicationContext(), "zarejstrowano", Toast.LENGTH_SHORT).show();
                     client = msg.replyTo;
+                    break;
+                case MSG_REGISTER_PROVIDER:
+                    if (locationManager == null) {
+                        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                    }
+                    else {
+                        runLocator();
+                    }
                     break;
                 case MSG_PROVIDER_CHANGE:
                     if (requested) {

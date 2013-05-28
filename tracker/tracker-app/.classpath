@@ -16,5 +16,6 @@
 	<classpathentry exported="true" kind="var" path="M2_REPO/com/thoughtworks/xstream/xstream/1.4.4/xstream-1.4.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/j256/ormlite/ormlite-android/4.45/ormlite-android-4.45.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/j256/ormlite/ormlite-core/4.45/ormlite-core-4.45.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/android/gms/google-play-services/7/google-play-services-7.jar" sourcepath="/M2_REPO/com/google/android/gms/google-play-services/7/google-play-services-7.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

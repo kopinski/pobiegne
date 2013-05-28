@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="kind">
         <item>aerobowy</item>
         <item>interwałowy</item>
     </string-array>
+    
     <string-array name="activtiy">
         <item>bieganie</item>
-        <item>jazda na rowerze</item>
-        <item>nordik walking</item>
+        <item>rower</item>
+        <item>marsz</item>
+        <item>spacer</item>
     </string-array>
+    <integer-array name="activtiy_imgs">
+        <item>@drawable/comp_running</item>
+        <item>@drawable/comp_bicycle</item>
+        <item>@drawable/comp_trekking</item>
+        <item>@drawable/comp_walking</item>
+    </integer-array>
+
 </resources>

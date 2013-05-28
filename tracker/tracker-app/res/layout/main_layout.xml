@@ -86,33 +86,53 @@
 					<RelativeLayout android:layout_width="0dp"
 						android:layout_height="wrap_content" android:layout_weight="1">
 
-						<TextView android:id="@+id/currentPaceLabel" style="@style/ww.workoutLabel"
-							android:drawableLeft="@drawable/meter_fast" android:text="@string/currentPace" />
+						<TextView
+						    android:id="@+id/currentSpeedLabel"
+						    style="@style/ww.workoutLabel"
+						    android:drawableLeft="@drawable/meter_fast"
+						    android:text="@string/currentSpeed" />
 
-						<TextView android:id="@+id/currentPace" style="@style/ww.workoutValue.label.left"
-							android:layout_below="@+id/currentPaceLabel"
-							android:layout_toLeftOf="@id/currentPaceUnit"
-							android:layout_weight="1" android:text="@string/startValue" />
+						<TextView
+						    android:id="@+id/currentSpeed"
+						    style="@style/ww.workoutValue.label.left"
+						    android:layout_below="@+id/currentSpeedLabel"
+						    android:layout_toLeftOf="@id/currentSpeedUnit"
+						    android:layout_weight="1"
+						    android:text="@string/startValue" />
 
-						<TextView android:id="@id/currentPaceUnit" style="@style/ww.workoutValue.label"
-							android:layout_alignBaseline="@id/currentPace"
-							android:layout_below="@id/currentPaceLabel" android:text="@string/kmph" />
+						<TextView
+						    android:id="@+id/currentSpeedUnit"
+						    style="@style/ww.workoutValue.label"
+						    android:layout_alignBaseline="@id/currentSpeed"
+						    android:layout_below="@id/currentSpeedLabel"
+						    android:text="@string/kmph" />
+
 					</RelativeLayout>
 
 					<RelativeLayout android:layout_width="0dp"
 						android:layout_height="wrap_content" android:layout_weight="1">
 
-						<TextView android:id="@+id/avaragePaceLabel" style="@style/ww.workoutLabel"
-							android:drawableLeft="@drawable/meter_medium" android:text="@string/avaragePace" />
+						<TextView
+						    android:id="@+id/averageSpeedLabel"
+						    style="@style/ww.workoutLabel"
+						    android:drawableLeft="@drawable/meter_medium"
+						    android:text="@string/averageSpeed" />
 
-						<TextView android:id="@+id/avaragePace" style="@style/ww.workoutValue.label.left"
-							android:layout_below="@+id/avaragePaceLabel"
-							android:layout_toLeftOf="@id/avaragePaceUnit" android:text="@string/startValue" />
+						<TextView
+						    android:id="@+id/averageSpeed"
+						    style="@style/ww.workoutValue.label.left"
+						    android:layout_below="@+id/averageSpeedLabel"
+						    android:layout_toLeftOf="@id/averageSpeedUnit"
+						    android:text="@string/startValue" />
 
-						<TextView android:id="@id/avaragePaceUnit" style="@style/ww.workoutValue.label"
-							android:layout_alignBaseline="@id/avaragePace"
-							android:layout_alignParentRight="true" android:layout_below="@id/avaragePaceLabel"
-							android:text="@string/kmph" />
+						<TextView
+						    android:id="@id/averageSpeedUnit"
+						    style="@style/ww.workoutValue.label"
+						    android:layout_alignBaseline="@id/averageSpeed"
+						    android:layout_alignParentRight="true"
+						    android:layout_below="@id/averageSpeedLabel"
+						    android:text="@string/kmph" />
+
 					</RelativeLayout>
 				</LinearLayout>
 

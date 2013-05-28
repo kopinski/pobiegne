@@ -3,6 +3,7 @@ package pl.pobiegne.mobile.navigation;
 import pl.pobiegne.mobile.R;
 import pl.pobiegne.mobile.activity.HistoryActivity_;
 import pl.pobiegne.mobile.activity.MainActivity_;
+import pl.pobiegne.mobile.activity.ProfileActivity_;
 import pl.pobiegne.mobile.adapter.MenuSpinnerAdapter;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
@@ -74,12 +75,17 @@ public class NavigationManager {
                     intent = new Intent(context, HistoryActivity_.class);
                     context.startActivity(intent);
                     break;
+                case PROFILE:
+                    intent = new Intent(context, ProfileActivity_.class);
+                    context.startActivity(intent);
+                    break;
                 case EXIT:
                     AlertDialog.Builder builder = new AlertDialog.Builder(context, AlertDialog.THEME_HOLO_DARK);
                     builder.setMessage(confirm).setCancelable(false)
                             .setPositiveButton(yes, new DialogInterface.OnClickListener() {
                                 
                                 public void onClick(DialogInterface dialog, int id) {
+                                    context.finish();
                                     System.exit(0);
                                 }
                             }).setNegativeButton(no, new DialogInterface.OnClickListener() {

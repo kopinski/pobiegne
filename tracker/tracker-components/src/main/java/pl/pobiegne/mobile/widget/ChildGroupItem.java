@@ -56,7 +56,7 @@ public class ChildGroupItem extends LinearLayout {
             rightIcon.setBackgroundResource(0);
         }
         else {
-            rightIcon.setBackgroundResource(R.drawable.upload);
+            rightIcon.setBackgroundResource(R.drawable.comp_upload);
         }
         if (data.getActivity() != null) {
             switch (data.getActivity()) {

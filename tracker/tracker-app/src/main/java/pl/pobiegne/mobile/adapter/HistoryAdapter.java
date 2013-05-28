@@ -56,6 +56,8 @@ public class HistoryAdapter extends BaseExpandableListAdapter {
     
     @AfterViews
     public void initAdapter() {
+        items.clear();
+        groups.clear();
         items = itemManager.selectAll();
         if (items != null) {
             Collections.sort(items);
@@ -147,13 +149,13 @@ public class HistoryAdapter extends BaseExpandableListAdapter {
     }
     
     @Override
-    public Object getGroup(int groupPosition) {
+    public RouteGroup getGroup(int groupPosition) {
         return groups.get(groupPosition);
     }
     
     @Override
-    public Object getChild(int groupPosition, int childPosition) {
-        return items.get(groupPosition);
+    public Route getChild(int groupPosition, int childPosition) {
+        return groups.get(groupPosition).getRoutes().get(childPosition);
     }
     
     @Override
@@ -173,6 +175,6 @@ public class HistoryAdapter extends BaseExpandableListAdapter {
     
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
+        return true;
     }
 }

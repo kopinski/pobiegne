@@ -22,6 +22,9 @@
 
 		<!-- Wersja Joda -->
 		<joda-time.version>2.2</joda-time.version>
+
+		<!-- Wersja ViewPagerIndicator -->
+		<viewpagerindicator.version>2.4.1</viewpagerindicator.version>
 	</properties>
 
 	<dependencies>
@@ -70,7 +73,21 @@
 			<artifactId>androidannotations-api</artifactId>
 			<version>${android-annotations.version}</version>
 		</dependency>
-
+		
+		<!-- API Google Maps -->
+		<dependency>
+			<groupId>com.google.android.gms</groupId>
+			<artifactId>google-play-services</artifactId>
+			<version>7</version>
+			<type>apklib</type>
+		</dependency>
+		<dependency>
+			<groupId>com.google.android.gms</groupId>
+			<artifactId>google-play-services</artifactId>
+			<version>7</version>
+			<type>jar</type>
+		</dependency>
+		
 		<!-- Android support library -->
 		<dependency>
 			<groupId>com.google.android</groupId>
@@ -102,6 +119,14 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- ViewPagerIndicator -->
+		<dependency>
+			<groupId>com.viewpagerindicator</groupId>
+			<artifactId>library</artifactId>
+			<version>${viewpagerindicator.version}</version>
+			<type>apklib</type>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -119,7 +144,7 @@
 					</sdk>
 					<!-- <run> <debug>true</debug> </run> -->
 					<deleteConflictingFiles>true</deleteConflictingFiles>
-					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+<!-- 					<undeployBeforeDeploy>true</undeployBeforeDeploy> -->
 				</configuration>
 				<executions>
 					<execution>

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 
@@ -19,36 +18,25 @@ public class GPX {
     public final static String GPX_SCHEMA =
             "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd";
     
-    @XStreamAsAttribute
-    private double version;
+    public final static String GPX_FIRST_LINE =
+            "gpx xmlns:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.topografix.com/GPX/1/1\" creator=\"Pobiegne Tracker http://pobiegne.pl\" version=\"1.1\"";
     
-    @XStreamAsAttribute
-    private String creator;
-    
-    @XStreamAlias("metaData")
-    private MetaData metaData;
+    // @XStreamImplicit
+    // private double version;
+    //
+    // @XStreamImplicit
+    // private String creator;
+    //
+    // @XStreamImplicit
+    // private MetaData metaData;
     
     @XStreamImplicit
     private ArrayList<Track> tracks = new ArrayList<Track>();
     
     
     public GPX() {
-        this.version = 1.1;
-        this.creator = "Pobiegne Tracker http://pobiegne.pl";
-    }
-    
-    /**
-     * @return the metaData
-     */
-    public MetaData getMetaData() {
-        return metaData;
-    }
-    
-    /**
-     * @param metaData the metaData to set
-     */
-    public void setMetaData(MetaData metaData) {
-        this.metaData = metaData;
+        // this.version = 1.1;
+        // this.creator = "Pobiegne Tracker http://pobiegne.pl";
     }
     
     /**
@@ -81,5 +69,15 @@ public class GPX {
      */
     public void addTrack(Track track) {
         this.tracks.add(track);
+    }
+    
+    public ArrayList<Coordinate> getAllCoordinates() {
+        ArrayList<Coordinate> path = new ArrayList<Coordinate>();
+        for (TrackSegment segemnt : tracks.get(0).getTrackSegments()) {
+            for (WayPoint wayPoint : segemnt.getTrackPoints()) {
+                path.add(new Coordinate(wayPoint.getLongitude(), wayPoint.getLatitude()));
+            }
+        }
+        return path;
     }
 }

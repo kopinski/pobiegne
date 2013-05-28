@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="currentPaceUnit" />
-    <item type="id" name="avaragePaceUnit" />
-    <item type="id" name="altitudeUnit" />
-    <item type="id" name="dummyView" />
+
+    <item name="averageSpeedUnit" type="id"/>
+    <item name="currentSpeedUnit" type="id"/>
+    <item name="averagePaceUnit" type="id"/>
+    <item name="altitudeUnit" type="id"/>
+    <item name="dummyView" type="id"/>
+
 </resources>

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import pl.pobiegne.mobile.R;
 import pl.pobiegne.mobile.common.api.IconItemData;
-import pl.pobiegne.mobile.common.api.db.WorkoutIntensivity;
-import pl.pobiegne.mobile.widget.IconSpinnerItem;
-import pl.pobiegne.mobile.widget.IconSpinnerItem_;
+import pl.pobiegne.mobile.preference.TrackerPreferences_;
+import pl.pobiegne.mobile.widget.IconLabelItem;
+import pl.pobiegne.mobile.widget.IconLabelItem_;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,35 +15,39 @@ import android.widget.BaseAdapter;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.RootContext;
-import com.googlecode.androidannotations.annotations.res.StringArrayRes;
+import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
 
 
 @EBean
-public class BaseSpinnerAdapter extends BaseAdapter {
+public class ProfileAdapter extends BaseAdapter {
     
     @RootContext
     protected Activity context;
     
-    @StringArrayRes(R.array.kind)
-    protected String[] kind;
+    @Pref
+    TrackerPreferences_ pref;
     
     protected ArrayList<IconItemData> itemDataList = new ArrayList<IconItemData>();
     
     
     @AfterViews
-    protected void initializeIcons() {
+    public void initialize() {
         itemDataList.clear();
-        itemDataList.add(new IconItemData(kind[0]));
-        itemDataList.add(new IconItemData(kind[1]));
+        itemDataList.add(new IconItemData(R.drawable.tear_of_calendar, context.getString(R.string.birthday), pref
+                .birhtday().get(), ProfileItem.BIRTHDAY.ordinal()));
+        itemDataList.add(new IconItemData(R.drawable.height, context.getString(R.string.height), pref.height().get()
+                + " " + context.getText(R.string.cm), ProfileItem.HEIGHT.ordinal()));
+        itemDataList.add(new IconItemData(R.drawable.scale, context.getString(R.string.weight), pref.weight().get()
+                + " " + context.getText(R.string.kg), ProfileItem.WEIGHT.ordinal()));
     }
     
     public View getView(int position, View convertView, ViewGroup parent) {
-        IconSpinnerItem itemView;
+        IconLabelItem itemView;
         if (convertView == null) {
-            itemView = IconSpinnerItem_.build(context);
+            itemView = IconLabelItem_.build(context);
         }
         else {
-            itemView = (IconSpinnerItem) convertView;
+            itemView = (IconLabelItem) convertView;
         }
         
         itemView.bind(getItem(position));
@@ -66,7 +70,8 @@ public class BaseSpinnerAdapter extends BaseAdapter {
         return position;
     }
     
-    public WorkoutIntensivity getSelectedIntensivity(int position) {
-        return WorkoutIntensivity.values()[itemDataList.get(position).getItem()];
+    
+    public enum ProfileItem {
+        BIRTHDAY, HEIGHT, WEIGHT, SEX;
     }
 }

@@ -18,8 +18,6 @@ import pl.pobiegne.mobile.navigation.NavigationManager;
 import pl.pobiegne.mobile.navigation.NavigationManager.Navigate;
 import pl.pobiegne.mobile.service.TrackerService;
 import pl.pobiegne.mobile.util.Stopwatch;
-import pl.pobiegne.mobile.util.StorageUtil;
-import pl.pobiegne.mobile.xml.converter.HashMapConverter;
 import pl.pobiegne.mobile.xml.converter.JodaTimeConverter;
 import pl.pobiegne.mobile.xml.data.GPX;
 import pl.pobiegne.mobile.xml.data.Track;
@@ -59,15 +57,12 @@ import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
 import com.googlecode.androidannotations.annotations.res.DrawableRes;
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.reflection.ReflectionProvider;
-import com.thoughtworks.xstream.mapper.Mapper;
 
 
 /**
  * @author Krzysztof Kopiński
  */
 @EActivity(R.layout.main_layout)
-// @OptionsMenu(R.menu.main_menu)
 public class MainActivity extends Activity {
     
     public static final long MIN_TIME_UPDATE = 0;
@@ -126,11 +121,11 @@ public class MainActivity extends Activity {
     @ViewById(R.id.distance)
     protected TextView distance;
     
-    @ViewById(R.id.avaragePace)
-    protected TextView avaragePace;
+    @ViewById(R.id.averageSpeed)
+    protected TextView averageSpeed;
     
-    @ViewById(R.id.currentPace)
-    protected TextView currentPace;
+    @ViewById(R.id.currentSpeed)
+    protected TextView currentSpeed;
     
     @ViewById(R.id.workOutTime)
     protected TextView workoutTime;
@@ -164,10 +159,6 @@ public class MainActivity extends Activity {
      * Czy polaczono z serwisem.
      */
     private boolean isBound;
-    
-    // private boolean gpsProviderEnabled;
-    
-    // private boolean isProviderAvailable;
     
     /**
      * Czy zlecono uaktualnianie pozycji?
@@ -232,10 +223,10 @@ public class MainActivity extends Activity {
         totalDistance = 0.0;
         stream = new XStream();
         stream.autodetectAnnotations(true);
-        Mapper mapper = stream.getMapper();
-        ReflectionProvider reflectionProvider = stream.getReflectionProvider();
+        // Mapper mapper = stream.getMapper();
+        // ReflectionProvider reflectionProvider = stream.getReflectionProvider();
         stream.registerConverter(new JodaTimeConverter());
-        stream.registerConverter(new HashMapConverter(mapper, reflectionProvider, GPX.class, gpx.getHashMap()));
+        // stream.registerConverter(new HashMapConverter(mapper, reflectionProvider, GPX.class, gpx.getHashMap()));
         track.setName("Trasa z dnia " + new DateTime().toString("dd-MM-yyyy HH:mm"));
         trackSegmentList = new ArrayList<TrackSegment>();
         trackSegmentList.add(new TrackSegment());
@@ -299,6 +290,18 @@ public class MainActivity extends Activity {
         }
     }
     
+    /** Prosi serwis o wlaczenie GPS */
+    private void askForLocationRequest() {
+        try {
+            if (service != null) {
+                Message msg = Message.obtain(null, TrackerService.MSG_REGISTER_PROVIDER);
+                service.send(msg);
+            }
+        }
+        catch (RemoteException e) {
+        }
+    }
+    
     @Trace
     @Click(R.id.pauseWorkout)
     protected void onPauseClick() {
@@ -326,27 +329,26 @@ public class MainActivity extends Activity {
         stopLayout.setVisibility(View.GONE);
         startLayout.setVisibility(View.VISIBLE);
         ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Zapiswyanie trasy");
+        progressDialog.setMessage(getText(R.string.routeSaving));
         progressDialog.show();
         saveWorkout(progressDialog);
     }
     
     @Background
-    public void saveWorkout(ProgressDialog progressDialog) {
+    protected void saveWorkout(ProgressDialog progressDialog) {
         status = STOPED;
         Route route = new Route();
         route.setDate(new DateTime());
         route.setDistance(totalDistance * 1000);
         route.setName(track.getName());
-        route.setActivity(iconAdapter.getSelectedWorkout(activitySpinner.getSelectedItemPosition()));
+        route.setActivity(iconAdapter.getSelectedWorkoutType(activitySpinner.getSelectedItemPosition()));
+        route.setType(adapter.getSelectedIntensivity(kindSpinner.getSelectedItemPosition()));
         route.setTotalTime(System.currentTimeMillis() - firstTime);
         route.setWorkoutTime(stopwatch.getDuration());
+        route.setXml(stream.toXML(gpx));
+        stopwatch.reset();
         
-        routeManager.saveRoute(route);
-        StorageUtil storage = new StorageUtil(this);
-        boolean savingResult =
-                storage.saveStringToExternalStorage(stream.toXML(gpx), "pobiegne",
-                        new DateTime().toString("yyy-MM-dd_HH-mm") + ".gpx", true);
+        boolean savingResult = routeManager.saveRoute(route);
         endSaving(progressDialog, savingResult);
     }
     
@@ -356,6 +358,7 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(MainActivity.this, HistoryActivity_.class);
         startActivity(intent);
         resetFields();
+        unbindService(connection);
     }
     
     @Trace
@@ -372,8 +375,8 @@ public class MainActivity extends Activity {
         
         // czyszczenie layoutu
         workoutTime.setText(R.string.startTime);
-        avaragePace.setText(R.string.emptyValue);
-        currentPace.setText(R.string.emptyValue);
+        averageSpeed.setText(R.string.emptyValue);
+        currentSpeed.setText(R.string.emptyValue);
         altitude.setText(R.string.emptyValue);
         distance.setText(R.string.startDistance);
         statisticLayout.setBackgroundDrawable(null);
@@ -390,6 +393,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         navigation.buildActionBar(); // tworzenie ActionBar menu
+        askForLocationRequest();
         askIfLocationRequested();
     }
     
@@ -465,13 +469,13 @@ public class MainActivity extends Activity {
                     float currentDistance = oldLocation.distanceTo(location) / 1000;
                     long timePeriod = location.getTime() - oldLocation.getTime();
                     float actualPace = (currentDistance / timePeriod) * 3600000.0f;
-                    long totalTime = location.getTime() - firstTime;
+                    long totalTime = stopwatch.getDuration();
                     if (currentDistance / timePeriod < 0.01) {
                         totalDistance += currentDistance;
                         double meanPace = totalDistance / totalTime * 3600000.0;
                         addWaypoint(location);
-                        currentPace.setText(twoDigitFormat.format(actualPace));
-                        avaragePace.setText(twoDigitFormat.format(meanPace));
+                        currentSpeed.setText(twoDigitFormat.format(actualPace));
+                        averageSpeed.setText(twoDigitFormat.format(meanPace));
                     }
                     else {
                         Log.d(TAG, "zbyt duza szybkosc [km/h]=" + actualPace);
