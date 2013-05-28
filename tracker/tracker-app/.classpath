@@ -8,14 +8,19 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/com/googlecode/androidannotations/androidannotations-api/2.7.1/androidannotations-api-2.7.1.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/com/googlecode/androidannotations/androidannotations-api/2.7.1/androidannotations-api-2.7.1.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/joda-time/joda-time/2.2/joda-time-2.2.jar"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/tracker-components"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/tracker-common"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/com/thoughtworks/xstream/xstream/1.4.4/xstream-1.4.4.jar"/>
-	<classpathentry kind="var" path="M2_REPO/com/j256/ormlite/ormlite-android/4.45/ormlite-android-4.45.jar"/>
-	<classpathentry kind="var" path="M2_REPO/com/j256/ormlite/ormlite-core/4.45/ormlite-core-4.45.jar"/>
-	<classpathentry kind="var" path="M2_REPO/com/google/android/gms/google-play-services/7/google-play-services-7.jar" sourcepath="/M2_REPO/com/google/android/gms/google-play-services/7/google-play-services-7.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/com/j256/ormlite/ormlite-android/4.45/ormlite-android-4.45.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/com/j256/ormlite/ormlite-core/4.45/ormlite-core-4.45.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/com/google/android/gms/google-play-services/7/google-play-services-7.jar" sourcepath="/M2_REPO/com/google/android/gms/google-play-services/7/google-play-services-7.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.1.1/jackson-core-2.1.1.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/android/spring-android-core/1.0.1.BUILD-SNAPSHOT/spring-android-core-1.0.1.BUILD-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/android/spring-android-rest-template/1.0.1.BUILD-SNAPSHOT/spring-android-rest-template-1.0.1.BUILD-SNAPSHOT.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.9.11/jackson-core-asl-1.9.11.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.9.11/jackson-mapper-asl-1.9.11.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

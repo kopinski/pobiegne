@@ -25,6 +25,8 @@
 
 		<!-- Wersja ViewPagerIndicator -->
 		<viewpagerindicator.version>2.4.1</viewpagerindicator.version>
+		<org.springframework.android-version>1.0.1.BUILD-SNAPSHOT</org.springframework.android-version>
+		<com.fasterxml.jackson-version>2.1.2</com.fasterxml.jackson-version>
 	</properties>
 
 	<dependencies>
@@ -73,7 +75,7 @@
 			<artifactId>androidannotations-api</artifactId>
 			<version>${android-annotations.version}</version>
 		</dependency>
-		
+
 		<!-- API Google Maps -->
 		<dependency>
 			<groupId>com.google.android.gms</groupId>
@@ -87,7 +89,7 @@
 			<version>7</version>
 			<type>jar</type>
 		</dependency>
-		
+
 		<!-- Android support library -->
 		<dependency>
 			<groupId>com.google.android</groupId>
@@ -127,8 +129,32 @@
 			<version>${viewpagerindicator.version}</version>
 			<type>apklib</type>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>org.springframework.android</groupId>
+			<artifactId>spring-android-rest-template</artifactId>
+			<version>${org.springframework.android-version}</version>
+		</dependency>
 
+		<!-- Jackson JSON Processor -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${com.fasterxml.jackson-version}</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>spring-snapshot</id>
+			<name>SpringSource Snapshot Repository</name>
+			<url>http://repo.springsource.org/libs-snapshot</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>
@@ -144,7 +170,7 @@
 					</sdk>
 					<!-- <run> <debug>true</debug> </run> -->
 					<deleteConflictingFiles>true</deleteConflictingFiles>
-<!-- 					<undeployBeforeDeploy>true</undeployBeforeDeploy> -->
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
 				</configuration>
 				<executions>
 					<execution>

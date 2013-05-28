@@ -9,6 +9,7 @@ import pl.pobiegne.mobile.adapter.DetailFragmentAdapter;
 import pl.pobiegne.mobile.common.api.db.Route;
 import pl.pobiegne.mobile.dao.IRoute;
 import pl.pobiegne.mobile.dao.RouteManager;
+import pl.pobiegne.mobile.rest.IRestClient;
 import pl.pobiegne.mobile.util.StorageUtil;
 import pl.pobiegne.mobile.xml.data.Coordinate;
 import pl.pobiegne.mobile.xml.data.GPX;
@@ -32,6 +33,7 @@ import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.Trace;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.rest.RestService;
 import com.thoughtworks.xstream.XStream;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -51,6 +53,9 @@ public class DetailActivity extends FragmentActivity {
     
     @Bean(RouteManager.class)
     protected IRoute routeManager;
+    
+    @RestService
+    IRestClient restClient;
     
     private DetailFragmentAdapter adapter;
     
@@ -90,6 +95,8 @@ public class DetailActivity extends FragmentActivity {
     
     @OptionsItem
     void sendToServerSelected() {
+        String result = details.getXml().replaceFirst("gpx", GPX.GPX_FIRST_LINE);
+        restClient.addRoute(result);
         finish();
     }
     
